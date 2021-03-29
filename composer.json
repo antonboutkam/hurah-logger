@@ -1,0 +1,29 @@
+{
+    "name": "hurah/logger",
+    "description": "At the moment this is actually just a around Monolog, it is used in Hurah / the Innovation app",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Anton Boutkam",
+            "email": "anton@nui-boutkam.nl"
+        }
+    ],
+    "require": {
+        "symfony/finder": "^5.2",
+        "php" : "^7.4 || 8.0.*",
+        "ext-json": "*"
+    },
+    "require-dev" : {
+        "phpunit/phpunit": "^9.3.8"
+    },
+    "autoload" : {
+        "psr-4" : {
+            "Hurah\\Logger\\" : "src/Logger"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Test\\Hurah\\Logger\\": "tests/Logger"
+        }
+    }
+}
