@@ -1,6 +1,6 @@
 {
     "name": "hurah/logger",
-    "description": "At the moment this is actually just a around Monolog, it is used in Hurah / the Innovation app",
+    "description": "Logger for the Hurah / Innovation app",
     "license": "MIT",
     "authors": [
         {
