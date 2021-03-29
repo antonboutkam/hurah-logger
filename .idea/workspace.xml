@@ -19,16 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aeefc774-2541-409c-a014-9a3012827bc8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.circleci/config.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Logger/LoggerTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/bootstrap.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/logger.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/logger.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Logger.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Logger/Logger.php" afterDir="false" />
-    </list>
+    <list default="true" id="aeefc774-2541-409c-a014-9a3012827bc8" name="Default Changelist" comment="Initial" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -139,6 +130,10 @@
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Initial" />
+    <option name="LAST_COMMIT_MESSAGE" value="Initial" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="2569" y="907" width="558" height="275" key="#Composer" timestamp="1617024202665">
       <screen x="0" y="0" width="3840" height="2160" />
@@ -156,21 +151,29 @@
       <screen x="0" y="0" width="3840" height="2160" />
     </state>
     <state x="2570" y="723" width="536" height="625" key="FileChooserDialogImpl/0.0.3840.2160@0.0.3840.2160" timestamp="1617025976480" />
-    <state width="1940" height="624" key="GridCell.Tab.0.bottom" timestamp="1617026193341">
+    <state width="1940" height="624" key="GridCell.Tab.0.bottom" timestamp="1617026284694">
       <screen x="0" y="0" width="3840" height="2160" />
     </state>
-    <state width="1940" height="624" key="GridCell.Tab.0.bottom/0.0.3840.2160@0.0.3840.2160" timestamp="1617026193341" />
-    <state width="1940" height="624" key="GridCell.Tab.0.center" timestamp="1617026193341">
+    <state width="1940" height="624" key="GridCell.Tab.0.bottom/0.0.3840.2160@0.0.3840.2160" timestamp="1617026284694" />
+    <state width="1940" height="624" key="GridCell.Tab.0.center" timestamp="1617026284693">
       <screen x="0" y="0" width="3840" height="2160" />
     </state>
-    <state width="1940" height="624" key="GridCell.Tab.0.center/0.0.3840.2160@0.0.3840.2160" timestamp="1617026193341" />
-    <state width="1940" height="624" key="GridCell.Tab.0.left" timestamp="1617026193341">
+    <state width="1940" height="624" key="GridCell.Tab.0.center/0.0.3840.2160@0.0.3840.2160" timestamp="1617026284693" />
+    <state width="1940" height="624" key="GridCell.Tab.0.left" timestamp="1617026284693">
       <screen x="0" y="0" width="3840" height="2160" />
     </state>
-    <state width="1940" height="624" key="GridCell.Tab.0.left/0.0.3840.2160@0.0.3840.2160" timestamp="1617026193341" />
-    <state width="1940" height="624" key="GridCell.Tab.0.right" timestamp="1617026193341">
+    <state width="1940" height="624" key="GridCell.Tab.0.left/0.0.3840.2160@0.0.3840.2160" timestamp="1617026284693" />
+    <state width="1940" height="624" key="GridCell.Tab.0.right" timestamp="1617026284693">
       <screen x="0" y="0" width="3840" height="2160" />
     </state>
-    <state width="1940" height="624" key="GridCell.Tab.0.right/0.0.3840.2160@0.0.3840.2160" timestamp="1617026193341" />
+    <state width="1940" height="624" key="GridCell.Tab.0.right/0.0.3840.2160@0.0.3840.2160" timestamp="1617026284693" />
+    <state x="2342" y="684" width="1006" height="680" key="Vcs.Push.Dialog.v2" timestamp="1617026260142">
+      <screen x="0" y="0" width="3840" height="2160" />
+    </state>
+    <state x="2342" y="684" width="1006" height="680" key="Vcs.Push.Dialog.v2/0.0.3840.2160@0.0.3840.2160" timestamp="1617026260142" />
+    <state x="2551" y="865" width="595" height="359" key="git4idea.ui.GitTagDialog" timestamp="1617026250612">
+      <screen x="0" y="0" width="3840" height="2160" />
+    </state>
+    <state x="2551" y="865" width="595" height="359" key="git4idea.ui.GitTagDialog/0.0.3840.2160@0.0.3840.2160" timestamp="1617026250612" />
   </component>
 </project>
