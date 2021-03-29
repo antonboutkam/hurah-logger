@@ -1,7 +1,6 @@
 <?php
 namespace Hurah\Logger;
 
-use Core\Environment;
 use Exception;
 use Hurah\Types\Exception\InvalidArgumentException;
 use Hurah\Types\Util\JsonUtils;
@@ -13,6 +12,9 @@ use Psr\Log\LoggerInterface;
 
 class Logger implements LoggerInterface
 {
+
+    const COMBINED_LOG_FILE = 'combined.log';
+    const ERROR_LOG_FILE = 'error.log';
 
     /**
      * Detailed debug information
@@ -62,8 +64,11 @@ class Logger implements LoggerInterface
 
     private LoggerInterface $oLoggerImplementation;
 
-    public function __construct(string $sName = 'hurah', Path $oLogDir = null)
+    public function __construct(int $iMinLogLevel = self::WARNING, Path $oLogDir = null, string $sName = 'hurah')
     {
+        self::$oLogDir = Path::make('./tmp');
+        self::$iMinLogLevel = $iMinLogLevel;
+
         if ($oLogDir) {
             self::$oLogDir = $oLogDir;
         }
@@ -74,7 +79,7 @@ class Logger implements LoggerInterface
         $this->oLoggerImplementation->pushHandler($combinedHandler);
 
         // Log all warnings, critical, errors etc also separately.
-        $errorHandler = new StreamHandler(self::getLogDir() . '/combined.log', self::getMinLogLevel());
+        $errorHandler = new StreamHandler(self::getLogDir() . '/error.log', self::WARNING);
         $this->oLoggerImplementation->pushHandler($errorHandler);
     }
 
@@ -127,7 +132,7 @@ class Logger implements LoggerInterface
     {
         $log = new MonoLogger('404');
         $log->pushHandler(new StreamHandler(self::getLogDir() . '/page-not-found.log', self::getMinLogLevel()));
-        if (class_exists('\\Core\\Environment') && Environment::isDevel() || Environment::isTest()) {
+        if (class_exists('\\Core\\Environment') && \Core\Environment::isDevel() || \Core\Environment::isTest()) {
             $log->pushHandler(new PHPConsoleHandler(['enabled' => true]));
         }
 
@@ -171,6 +176,7 @@ class Logger implements LoggerInterface
 
     public function info($sMessage, array $context = array())
     {
+        echo "Write info " . self::getMinLogLevel();
         $this->oLoggerImplementation->info($sMessage, $context);
     }
 
