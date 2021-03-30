@@ -19,10 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aeefc774-2541-409c-a014-9a3012827bc8" name="Default Changelist" comment="Initial">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Logger/Logger.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Logger/Logger.php" afterDir="false" />
-    </list>
+    <list default="true" id="aeefc774-2541-409c-a014-9a3012827bc8" name="Default Changelist" comment="Small bugfix in constructor setting the wrong loglevel due to default parameter." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -141,7 +138,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial" />
+    <MESSAGE value="Small bugfix in constructor setting the wrong loglevel due to default parameter." />
+    <option name="LAST_COMMIT_MESSAGE" value="Small bugfix in constructor setting the wrong loglevel due to default parameter." />
   </component>
   <component name="WindowStateProjectService">
     <state x="2569" y="907" width="558" height="275" key="#Composer" timestamp="1617024202665">
@@ -176,13 +174,13 @@
       <screen x="0" y="0" width="3840" height="2160" />
     </state>
     <state width="1940" height="624" key="GridCell.Tab.0.right/0.0.3840.2160@0.0.3840.2160" timestamp="1617026284693" />
-    <state x="2327" y="584" width="1006" height="680" key="Vcs.Push.Dialog.v2" timestamp="1617028481002">
+    <state x="2324" y="564" width="1006" height="680" key="Vcs.Push.Dialog.v2" timestamp="1617102290479">
       <screen x="0" y="0" width="3840" height="2160" />
     </state>
-    <state x="2327" y="584" width="1006" height="680" key="Vcs.Push.Dialog.v2/0.0.3840.2160@0.0.3840.2160" timestamp="1617028481002" />
-    <state x="2551" y="865" width="595" height="359" key="git4idea.ui.GitTagDialog" timestamp="1617026250612">
+    <state x="2324" y="564" width="1006" height="680" key="Vcs.Push.Dialog.v2/0.0.3840.2160@0.0.3840.2160" timestamp="1617102290479" />
+    <state x="2548" y="845" width="595" height="359" key="git4idea.ui.GitTagDialog" timestamp="1617102256303">
       <screen x="0" y="0" width="3840" height="2160" />
     </state>
-    <state x="2551" y="865" width="595" height="359" key="git4idea.ui.GitTagDialog/0.0.3840.2160@0.0.3840.2160" timestamp="1617026250612" />
+    <state x="2548" y="845" width="595" height="359" key="git4idea.ui.GitTagDialog/0.0.3840.2160@0.0.3840.2160" timestamp="1617102256303" />
   </component>
 </project>
