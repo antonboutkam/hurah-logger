@@ -19,7 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aeefc774-2541-409c-a014-9a3012827bc8" name="Default Changelist" comment="Small bugfix in constructor setting the wrong loglevel due to default parameter." />
+    <list default="true" id="aeefc774-2541-409c-a014-9a3012827bc8" name="Default Changelist" comment="Small bugfix in constructor setting the wrong loglevel due to default parameter.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Logger/Logger.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Logger/Logger.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -92,6 +95,9 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -139,7 +145,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial" />
     <MESSAGE value="Small bugfix in constructor setting the wrong loglevel due to default parameter." />
-    <option name="LAST_COMMIT_MESSAGE" value="Small bugfix in constructor setting the wrong loglevel due to default parameter." />
+    <MESSAGE value="Packagist not picking up change." />
+    <option name="LAST_COMMIT_MESSAGE" value="Packagist not picking up change." />
   </component>
   <component name="WindowStateProjectService">
     <state x="2569" y="907" width="558" height="275" key="#Composer" timestamp="1617024202665">
@@ -174,13 +181,13 @@
       <screen x="0" y="0" width="3840" height="2160" />
     </state>
     <state width="1940" height="624" key="GridCell.Tab.0.right/0.0.3840.2160@0.0.3840.2160" timestamp="1617026284693" />
-    <state x="2324" y="564" width="1006" height="680" key="Vcs.Push.Dialog.v2" timestamp="1617102290479">
+    <state x="2318" y="524" width="1006" height="680" key="Vcs.Push.Dialog.v2" timestamp="1617103022600">
       <screen x="0" y="0" width="3840" height="2160" />
     </state>
-    <state x="2324" y="564" width="1006" height="680" key="Vcs.Push.Dialog.v2/0.0.3840.2160@0.0.3840.2160" timestamp="1617102290479" />
-    <state x="2548" y="845" width="595" height="359" key="git4idea.ui.GitTagDialog" timestamp="1617102256303">
+    <state x="2318" y="524" width="1006" height="680" key="Vcs.Push.Dialog.v2/0.0.3840.2160@0.0.3840.2160" timestamp="1617103022600" />
+    <state x="2545" y="825" width="599" height="359" key="git4idea.ui.GitTagDialog" timestamp="1617103016189">
       <screen x="0" y="0" width="3840" height="2160" />
     </state>
-    <state x="2548" y="845" width="595" height="359" key="git4idea.ui.GitTagDialog/0.0.3840.2160@0.0.3840.2160" timestamp="1617102256303" />
+    <state x="2545" y="825" width="599" height="359" key="git4idea.ui.GitTagDialog/0.0.3840.2160@0.0.3840.2160" timestamp="1617103016189" />
   </component>
 </project>
