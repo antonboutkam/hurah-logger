@@ -146,7 +146,8 @@
     <MESSAGE value="Initial" />
     <MESSAGE value="Small bugfix in constructor setting the wrong loglevel due to default parameter." />
     <MESSAGE value="Packagist not picking up change." />
-    <option name="LAST_COMMIT_MESSAGE" value="Packagist not picking up change." />
+    <MESSAGE value="Bugfix was overwriting previously set logdir" />
+    <option name="LAST_COMMIT_MESSAGE" value="Bugfix was overwriting previously set logdir" />
   </component>
   <component name="WindowStateProjectService">
     <state x="2569" y="907" width="558" height="275" key="#Composer" timestamp="1617024202665">
@@ -181,13 +182,13 @@
       <screen x="0" y="0" width="3840" height="2160" />
     </state>
     <state width="1940" height="624" key="GridCell.Tab.0.right/0.0.3840.2160@0.0.3840.2160" timestamp="1617026284693" />
-    <state x="2318" y="524" width="1006" height="680" key="Vcs.Push.Dialog.v2" timestamp="1617103022600">
+    <state x="2312" y="484" width="1006" height="680" key="Vcs.Push.Dialog.v2" timestamp="1617105518879">
       <screen x="0" y="0" width="3840" height="2160" />
     </state>
-    <state x="2318" y="524" width="1006" height="680" key="Vcs.Push.Dialog.v2/0.0.3840.2160@0.0.3840.2160" timestamp="1617103022600" />
-    <state x="2545" y="825" width="599" height="359" key="git4idea.ui.GitTagDialog" timestamp="1617103016189">
+    <state x="2312" y="484" width="1006" height="680" key="Vcs.Push.Dialog.v2/0.0.3840.2160@0.0.3840.2160" timestamp="1617105518879" />
+    <state x="2542" y="805" width="599" height="359" key="git4idea.ui.GitTagDialog" timestamp="1617105513588">
       <screen x="0" y="0" width="3840" height="2160" />
     </state>
-    <state x="2545" y="825" width="599" height="359" key="git4idea.ui.GitTagDialog/0.0.3840.2160@0.0.3840.2160" timestamp="1617103016189" />
+    <state x="2542" y="805" width="599" height="359" key="git4idea.ui.GitTagDialog/0.0.3840.2160@0.0.3840.2160" timestamp="1617105513588" />
   </component>
 </project>

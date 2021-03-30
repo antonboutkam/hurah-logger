@@ -82,11 +82,13 @@ class Logger implements LoggerInterface
 
         $this->oLoggerImplementation = new MonoLogger($sName);
         // Log anything that is more important then the current minimal log level to combined.log.
-        $combinedHandler = new StreamHandler(self::getLogDir()->extend('combined.log'), self::getMinLogLevel());
+        $mCombinedLog = self::getLogDir()->extend(self::COMBINED_LOG_FILE);
+        $combinedHandler = new StreamHandler("{$mCombinedLog}", self::getMinLogLevel());
         $this->oLoggerImplementation->pushHandler($combinedHandler);
 
         // Log all warnings, critical, errors etc also separately.
-        $errorHandler = new StreamHandler(self::getLogDir()->extend('error.log'), self::WARNING);
+        $mErrorLog = self::getLogDir()->extend(self::ERROR_LOG_FILE);
+        $errorHandler = new StreamHandler(self::getLogDir()->extend("{$mErrorLog}"), self::WARNING);
         $this->oLoggerImplementation->pushHandler($errorHandler);
     }
 
