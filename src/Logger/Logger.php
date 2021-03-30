@@ -88,7 +88,7 @@ class Logger implements LoggerInterface
 
         // Log all warnings, critical, errors etc also separately.
         $mErrorLog = self::getLogDir()->extend(self::ERROR_LOG_FILE);
-        $errorHandler = new StreamHandler(self::getLogDir()->extend("{$mErrorLog}"), self::WARNING);
+        $errorHandler = new StreamHandler("{$mErrorLog}", self::WARNING);
         $this->oLoggerImplementation->pushHandler($errorHandler);
     }
 
