@@ -185,7 +185,6 @@ class Logger implements LoggerInterface
 
     public function info($sMessage, array $context = array())
     {
-        echo "Write info " . self::getMinLogLevel();
         $this->oLoggerImplementation->info($sMessage, $context);
     }
 
