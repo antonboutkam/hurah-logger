@@ -59,21 +59,24 @@ class Logger implements LoggerInterface
      */
     const EMERGENCY = 600;
 
-    private static int $iMinLogLevel = MonoLogger::INFO;
+    private static int $iMinLogLevel = self::WARNING;
     private static Path $oLogDir;
 
     private LoggerInterface $oLoggerImplementation;
 
-    public function __construct(int $iMinLogLevel = self::WARNING, Path $oLogDir = null, string $sName = 'hurah')
+    public function __construct(int $iMinLogLevel = null, Path $oLogDir = null, string $sName = 'hurah')
     {
         self::$oLogDir = Path::make('./tmp');
-        self::$iMinLogLevel = $iMinLogLevel;
+        if($iMinLogLevel)
+        {
+            self::$iMinLogLevel = $iMinLogLevel;
+        }
+
 
         if ($oLogDir) {
             self::$oLogDir = $oLogDir;
         }
         $this->oLoggerImplementation = new MonoLogger($sName);
-
         // Log anything that is more important then the current minimal log level to combined.log.
         $combinedHandler = new StreamHandler(self::getLogDir() . '/combined.log', self::getMinLogLevel());
         $this->oLoggerImplementation->pushHandler($combinedHandler);
