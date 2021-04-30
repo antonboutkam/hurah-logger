@@ -19,23 +19,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aeefc774-2541-409c-a014-9a3012827bc8" name="Default Changelist" comment="Small bugfix in constructor setting the wrong loglevel due to default parameter.">
-      <change beforePath="$PROJECT_DIR$/.circleci/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.circleci/config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/logger.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/logger.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php-test-framework.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php-test-framework.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/phpunit.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/phpunit.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.phpunit.result.cache" beforeDir="false" afterPath="$PROJECT_DIR$/.phpunit.result.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+    <list default="true" id="aeefc774-2541-409c-a014-9a3012827bc8" name="Default Changelist" comment="Moved to Monolog v2.^">
       <change beforePath="$PROJECT_DIR$/src/Logger/Logger.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Logger/Logger.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Logger/LoggerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Logger/LoggerTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -155,8 +140,16 @@
       <option name="presentableId" value="Default" />
       <updated>1617340416685</updated>
       <workItem from="1617340428261" duration="136000" />
-      <workItem from="1619803255367" duration="153000" />
+      <workItem from="1619803255367" duration="244000" />
     </task>
+    <task id="LOCAL-00001" summary="Moved to Monolog v2.^">
+      <created>1619803473309</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1619803473309</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -179,6 +172,7 @@
     <MESSAGE value="Packagist not picking up change." />
     <MESSAGE value="Bugfix was overwriting previously set logdir" />
     <MESSAGE value="Small bugfix in constructor setting the wrong loglevel due to default parameter." />
-    <option name="LAST_COMMIT_MESSAGE" value="Small bugfix in constructor setting the wrong loglevel due to default parameter." />
+    <MESSAGE value="Moved to Monolog v2.^" />
+    <option name="LAST_COMMIT_MESSAGE" value="Moved to Monolog v2.^" />
   </component>
 </project>
