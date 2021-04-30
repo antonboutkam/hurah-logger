@@ -75,7 +75,7 @@ class Logger implements LoggerInterface
         {
             self::$oLogDir = $oLogDir;
         }
-        else if(!self::$oLogDir)
+        else if(!isset(self::$oLogDir))
         {
             self::$oLogDir =  Path::make('./tmp');
         }
