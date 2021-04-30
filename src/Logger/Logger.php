@@ -101,7 +101,7 @@ class Logger implements LoggerInterface
         self::$oLogDir = $oLogDir;
     }
 
-    private static function getMinLogLevel()
+    private static function getMinLogLevel():int
     {
         return self::$iMinLogLevel;
     }
@@ -128,7 +128,7 @@ class Logger implements LoggerInterface
         $log->pushHandler(new StreamHandler("{$mLogFileName}", $iLogLevel));
         $log->pushHandler(new StreamHandler('php://stdout', $iLogLevel));
 
-        $log->addInfo($sMessage);
+        $log->info($sMessage);
     }
 
     /**
@@ -145,7 +145,7 @@ class Logger implements LoggerInterface
             $log->pushHandler(new PHPConsoleHandler(['enabled' => true]));
         }
 
-        $log->addError($sMessage);
+        $log->error($sMessage);
         self::error($sMessage);
     }
 
@@ -168,12 +168,12 @@ class Logger implements LoggerInterface
         $log->pushHandler(new PHPConsoleHandler(['enabled' => true]));
 
         if ($sLevel == 'info') {
-            $log->addInfo($mMessage);
+            $log->info($mMessage);
         } else if ($sLevel == 'warning') {
-            $log->addWarning($mMessage);
+            $log->warning($mMessage);
 
         } else {
-            $log->addDebug($mMessage);
+            $log->debug($mMessage);
 
         }
     }
