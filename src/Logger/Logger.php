@@ -75,9 +75,10 @@ class Logger implements LoggerInterface
         {
             self::$oLogDir = $oLogDir;
         }
-        else if(!self::$oLogDir)
+
+        if(!isset(self::$oLogDir))
         {
-            self::$oLogDir =  Path::make('./tmp');
+            self::$oLogDir =  Path::make('/tmp');
         }
 
         $this->oLoggerImplementation = new MonoLogger($sName);

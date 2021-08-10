@@ -19,9 +19,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aeefc774-2541-409c-a014-9a3012827bc8" name="Default Changelist" comment="Update log methods to reflect Monolog v2.2^">
+    <list default="true" id="aeefc774-2541-409c-a014-9a3012827bc8" name="Default Changelist" comment="Downgraded Monolog to ^1.3, Propel doen't work with a more recent version.">
+      <change beforePath="$PROJECT_DIR$/.idea/logger.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/logger.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Logger/Logger.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Logger/Logger.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,6 +95,7 @@
       <path value="$PROJECT_DIR$/vendor/hurah/data-types" />
       <path value="$PROJECT_DIR$/vendor/monolog/monolog" />
       <path value="$PROJECT_DIR$/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php80" />
     </include_path>
   </component>
   <component name="ProjectId" id="1qQua68ExAN7NLJy7rwKUkF5Xlz" />
@@ -153,7 +157,8 @@
       <workItem from="1617340428261" duration="136000" />
       <workItem from="1619803255367" duration="894000" />
       <workItem from="1619805669036" duration="2434000" />
-      <workItem from="1619888764330" duration="811000" />
+      <workItem from="1619888764330" duration="915000" />
+      <workItem from="1628595676194" duration="106000" />
     </task>
     <task id="LOCAL-00001" summary="Moved to Monolog v2.^">
       <created>1619803473309</created>
@@ -176,7 +181,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619805774217</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Downgraded Monolog to ^1.3, Propel doen't work with a more recent version.">
+      <created>1619890749974</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1619890749974</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -201,6 +213,7 @@
     <MESSAGE value="Small bugfix in constructor setting the wrong loglevel due to default parameter." />
     <MESSAGE value="Moved to Monolog v2.^" />
     <MESSAGE value="Update log methods to reflect Monolog v2.2^" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update log methods to reflect Monolog v2.2^" />
+    <MESSAGE value="Downgraded Monolog to ^1.3, Propel doen't work with a more recent version." />
+    <option name="LAST_COMMIT_MESSAGE" value="Downgraded Monolog to ^1.3, Propel doen't work with a more recent version." />
   </component>
 </project>
