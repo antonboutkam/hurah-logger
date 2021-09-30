@@ -147,7 +147,6 @@ class Logger implements LoggerInterface
         }
 
         $log->error($sMessage);
-        self::error($sMessage);
     }
 
     public function error($sMessage, array $context = array())

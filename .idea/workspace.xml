@@ -19,12 +19,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aeefc774-2541-409c-a014-9a3012827bc8" name="Default Changelist" comment="Downgraded Monolog to ^1.3, Propel doen't work with a more recent version.">
-      <change beforePath="$PROJECT_DIR$/.idea/logger.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/logger.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+    <list default="true" id="aeefc774-2541-409c-a014-9a3012827bc8" name="Default Changelist" comment="Bugfix: Constructor was accessing uninitialized static property.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Logger/Logger.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Logger/Logger.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -158,7 +154,8 @@
       <workItem from="1619803255367" duration="894000" />
       <workItem from="1619805669036" duration="2434000" />
       <workItem from="1619888764330" duration="915000" />
-      <workItem from="1628595676194" duration="106000" />
+      <workItem from="1628595676194" duration="232000" />
+      <workItem from="1632829635132" duration="26000" />
     </task>
     <task id="LOCAL-00001" summary="Moved to Monolog v2.^">
       <created>1619803473309</created>
@@ -188,7 +185,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619890749974</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Bugfix: Constructor was accessing uninitialized static property.">
+      <created>1628595846846</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1628595846846</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -214,6 +218,7 @@
     <MESSAGE value="Moved to Monolog v2.^" />
     <MESSAGE value="Update log methods to reflect Monolog v2.2^" />
     <MESSAGE value="Downgraded Monolog to ^1.3, Propel doen't work with a more recent version." />
-    <option name="LAST_COMMIT_MESSAGE" value="Downgraded Monolog to ^1.3, Propel doen't work with a more recent version." />
+    <MESSAGE value="Bugfix: Constructor was accessing uninitialized static property." />
+    <option name="LAST_COMMIT_MESSAGE" value="Bugfix: Constructor was accessing uninitialized static property." />
   </component>
 </project>
