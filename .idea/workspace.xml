@@ -20,7 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aeefc774-2541-409c-a014-9a3012827bc8" name="Default Changelist" comment="Bugfix: Constructor was accessing uninitialized static property.">
+      <change beforePath="$PROJECT_DIR$/.idea/logger.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/logger.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.phpunit.result.cache" beforeDir="false" afterPath="$PROJECT_DIR$/.phpunit.result.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Logger/Logger.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Logger/Logger.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Logger/LoggerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Logger/LoggerTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,13 +121,17 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="PHPUnit.LoggerTest (1)">
+  <component name="RunManager" selected="PHPUnit.LoggerTest.testAddHandler">
     <configuration name="LoggerTest (1)" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="Test\Hurah\Logger\LoggerTest" configuration_file="$PROJECT_DIR$/phpunit.xml.dist" file="$PROJECT_DIR$/tests/Logger/LoggerTest.php" scope="Class" />
       <method v="2" />
     </configuration>
     <configuration name="LoggerTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="Test\Logger\LoggerTest" configuration_file="$PROJECT_DIR$/phpunit.xml.dist" file="$PROJECT_DIR$/tests/Logger/LoggerTest.php" scope="Class" />
+      <method v="2" />
+    </configuration>
+    <configuration name="LoggerTest.testAddHandler" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Test\Hurah\Logger\LoggerTest" configuration_file="$PROJECT_DIR$/phpunit.xml.dist" file="$PROJECT_DIR$/tests/Logger/LoggerTest.php" method="testAddHandler" scope="Method" />
       <method v="2" />
     </configuration>
     <configuration name="LoggerTest.testConstruct" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
@@ -136,6 +144,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="PHPUnit.LoggerTest.testAddHandler" />
         <item itemvalue="PHPUnit.LoggerTest (1)" />
         <item itemvalue="PHPUnit.LoggerTest.testConstruct" />
         <item itemvalue="PHPUnit.LoggerTest" />

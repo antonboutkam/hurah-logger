@@ -2,9 +2,14 @@
 
 namespace Test\Hurah\Logger;
 
+use DirectoryIterator;
 use Hurah\Logger\Logger;
 use Hurah\Types\Type\Path;
+use Hurah\Types\Type\PathCollection;
+use Monolog\Handler\StreamHandler;
 use PHPUnit\Framework\TestCase;
+use function strpos;
+use function var_dump;
 
 class LoggerTest extends TestCase {
 
@@ -15,8 +20,21 @@ class LoggerTest extends TestCase {
     }
     public function cleanupFiles():void
     {
-        $oErrorLogFile = $this->getLogDir()->extend(Logger::COMBINED_LOG_FILE);
+        $oErrorLogFile = $this->getLogDir();
 
+        if($oErrorLogFile->isDir())
+        {
+            foreach($oErrorLogFile->getDirectoryIterator() as $item)
+        {
+            if($item instanceof DirectoryIterator)
+            {
+                $oLogFilePath = Path::make($item->getRealPath());
+                $oLogFilePath->unlink();
+
+            }
+
+        }
+        }
         if($oErrorLogFile->exists())
         {
             $oErrorLogFile->unlink();
@@ -42,6 +60,21 @@ class LoggerTest extends TestCase {
     public function tearDown():void
     {
         $this->cleanupFiles();
+    }
+
+    public function testAddHandler()
+    {
+        $oExtraHandlerLogFile = $this->getLogDir()->extend('extra-handler.log');
+        $oExtraHandlerLogFile->unlink();
+        $sFile = "{$oExtraHandlerLogFile}";
+        $oLogger = new Logger();
+        $oLogger->addMonologHandler(new StreamHandler($sFile, Logger::WARNING));
+        $oLogger->warning($sMsg = "blabla test");
+
+        $this->assertTrue(strpos($oExtraHandlerLogFile->contents(), $sMsg) > 1);
+
+        $this->assertTrue($oExtraHandlerLogFile->exists());
+        $oExtraHandlerLogFile->unlink();
     }
 
     public function testConstruct(): void {

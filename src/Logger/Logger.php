@@ -72,7 +72,7 @@ class Logger implements LoggerInterface
      */
     public function addMonologHandler(HandlerInterface $oHandler):void
     {
-        $this->addMonologHandler($oHandler);
+        $this->oLoggerImplementation->pushHandler($oHandler);
     }
 
     public function __construct(int $iMinLogLevel = null, Path $oLogDir = null, string $sName = 'hurah')

@@ -5,8 +5,6 @@
       <sourceFolder url="file://$MODULE_DIR$/src/Logger" isTestSource="false" packagePrefix="Hurah\Logger\" />
       <sourceFolder url="file://$MODULE_DIR$/tests/Logger" isTestSource="true" packagePrefix="Test\Hurah\Logger\" />
       <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/spec" isTestSource="true" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/composer" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/instantiator" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/hurah/data-types" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/monolog/monolog" />
