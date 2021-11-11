@@ -5,6 +5,7 @@ use Exception;
 use Hurah\Types\Exception\InvalidArgumentException;
 use Hurah\Types\Util\JsonUtils;
 use Hurah\Types\Type\Path;
+use Monolog\Handler\HandlerInterface;
 use Monolog\Handler\PHPConsoleHandler;
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger as MonoLogger;
@@ -63,6 +64,16 @@ class Logger implements LoggerInterface
     private static Path $oLogDir;
 
     private LoggerInterface $oLoggerImplementation;
+
+    /**
+     * Add additional logger handler
+     * For example new StreamHandler('php://stdout', Logger::WARNING)); to add logging to stdout
+     * @param HandlerInterface $oHandler
+     */
+    public function addMonologHandler(HandlerInterface $oHandler):void
+    {
+        $this->addMonologHandler($oHandler);
+    }
 
     public function __construct(int $iMinLogLevel = null, Path $oLogDir = null, string $sName = 'hurah')
     {
