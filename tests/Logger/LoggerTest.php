@@ -5,59 +5,55 @@ namespace Test\Hurah\Logger;
 use DirectoryIterator;
 use Hurah\Logger\Logger;
 use Hurah\Types\Type\Path;
-use Hurah\Types\Type\PathCollection;
 use Monolog\Handler\StreamHandler;
 use PHPUnit\Framework\TestCase;
 use function strpos;
-use function var_dump;
 
-class LoggerTest extends TestCase {
+class LoggerTest extends TestCase
+{
 
 
-    private function getLogDir():Path
-    {
-        return new Path('./tmp');
-    }
-    public function cleanupFiles():void
+    public function cleanupFiles(): void
     {
         $oErrorLogFile = $this->getLogDir();
 
-        if($oErrorLogFile->isDir())
+        if ($oErrorLogFile->isDir())
         {
-            foreach($oErrorLogFile->getDirectoryIterator() as $item)
-        {
-            if($item instanceof DirectoryIterator)
+            foreach ($oErrorLogFile->getDirectoryIterator() as $item)
             {
-                $oLogFilePath = Path::make($item->getRealPath());
-                $oLogFilePath->unlink();
+                if ($item instanceof DirectoryIterator)
+                {
+                    $oLogFilePath = Path::make($item->getRealPath());
+                    $oLogFilePath->unlink();
+
+                }
 
             }
-
         }
-        }
-        if($oErrorLogFile->exists())
+        if ($oErrorLogFile->exists())
         {
             $oErrorLogFile->unlink();
         }
         $oErrorLogFile = $this->getLogDir()->extend(Logger::ERROR_LOG_FILE);
 
-        if($oErrorLogFile->exists())
+        if ($oErrorLogFile->exists())
         {
             $oErrorLogFile->unlink();
         }
 
-        if($this->getLogDir()->isDir())
+        if ($this->getLogDir()->isDir())
         {
             $this->getLogDir()->unlink();
         }
 
     }
-    public function setUp():void
+
+    public function setUp(): void
     {
         $this->cleanupFiles();
     }
 
-    public function tearDown():void
+    public function tearDown(): void
     {
         $this->cleanupFiles();
     }
@@ -77,11 +73,13 @@ class LoggerTest extends TestCase {
         $oExtraHandlerLogFile->unlink();
     }
 
-    public function testConstruct(): void {
+    public function testConstruct(): void
+    {
         $this->assertInstanceOf(Logger::class, new Logger());
     }
 
-    public function testInfo(): void {
+    public function testInfo(): void
+    {
 
         $oLogger = new Logger(Logger::DEBUG, $this->getLogDir(), 'hurah');
         $oLogger->info("Testing");
@@ -90,7 +88,8 @@ class LoggerTest extends TestCase {
         $this->assertFileDoesNotExist($this->getLogDir()->extend(Logger::ERROR_LOG_FILE));
     }
 
-    public function testWarning(): void {
+    public function testWarning(): void
+    {
 
         $oLogger = new Logger(Logger::DEBUG, $this->getLogDir(), 'hurah');
         $oLogger->warning("Testing");
@@ -99,7 +98,8 @@ class LoggerTest extends TestCase {
         $this->assertFileExists($this->getLogDir()->extend(Logger::ERROR_LOG_FILE));
     }
 
-    public function testNotLogging(): void {
+    public function testNotLogging(): void
+    {
 
         $oLogger = new Logger(Logger::WARNING, $this->getLogDir(), 'hurah');
         $oLogger->info("Testing");
@@ -108,13 +108,19 @@ class LoggerTest extends TestCase {
         $this->assertFileDoesNotExist($this->getLogDir()->extend(Logger::ERROR_LOG_FILE));
     }
 
-    public function testLogging(): void {
+    public function testLogging(): void
+    {
 
         $oLogger = new Logger(Logger::WARNING, $this->getLogDir(), 'hurah');
         $oLogger->critical("Testing");
 
         $this->assertFileExists($this->getLogDir()->extend(Logger::COMBINED_LOG_FILE));
         $this->assertFileExists($this->getLogDir()->extend(Logger::ERROR_LOG_FILE));
+    }
+
+    private function getLogDir(): Path
+    {
+        return new Path('./tmp');
     }
 
 }
