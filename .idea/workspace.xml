@@ -22,7 +22,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aeefc774-2541-409c-a014-9a3012827bc8" name="Default Changelist" comment="Added unit test for adding MonologHandler">
+    <list default="true" id="aeefc774-2541-409c-a014-9a3012827bc8" name="Default Changelist" comment="Just indentation.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/Logger/LoggerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Logger/LoggerTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -228,6 +229,7 @@
     <MESSAGE value="Downgraded Monolog to ^1.3, Propel doen't work with a more recent version." />
     <MESSAGE value="Bugfix: Constructor was accessing uninitialized static property." />
     <MESSAGE value="Added unit test for adding MonologHandler" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added unit test for adding MonologHandler" />
+    <MESSAGE value="Just indentation." />
+    <option name="LAST_COMMIT_MESSAGE" value="Just indentation." />
   </component>
 </project>

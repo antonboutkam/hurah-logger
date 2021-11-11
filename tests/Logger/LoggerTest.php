@@ -15,11 +15,12 @@ class LoggerTest extends TestCase
 
     public function cleanupFiles(): void
     {
-        $oErrorLogFile = $this->getLogDir();
+        $oErrorLogDir = $this->getLogDir();
 
-        if ($oErrorLogFile->isDir())
+        // Empty directory
+        if ($oErrorLogDir->isDir())
         {
-            foreach ($oErrorLogFile->getDirectoryIterator() as $item)
+            foreach ($oErrorLogDir->getDirectoryIterator() as $item)
             {
                 if ($item instanceof DirectoryIterator)
                 {
@@ -27,25 +28,14 @@ class LoggerTest extends TestCase
                     $oLogFilePath->unlink();
 
                 }
-
             }
         }
-        if ($oErrorLogFile->exists())
-        {
-            $oErrorLogFile->unlink();
-        }
-        $oErrorLogFile = $this->getLogDir()->extend(Logger::ERROR_LOG_FILE);
 
-        if ($oErrorLogFile->exists())
+        // Remove directory
+        if ($oErrorLogDir->exists())
         {
-            $oErrorLogFile->unlink();
+            $oErrorLogDir->unlink();
         }
-
-        if ($this->getLogDir()->isDir())
-        {
-            $this->getLogDir()->unlink();
-        }
-
     }
 
     public function setUp(): void
