@@ -149,15 +149,14 @@ class Logger implements LoggerInterface
      * @param $sMessage
      * @throws Exception
      */
-    public function pageNotFound($sMessage)
+    public function pageNotFound($sMessage, array $context = array())
     {
         $log = new MonoLogger('404');
         $log->pushHandler(new StreamHandler(self::getLogDir() . '/page-not-found.log', self::getMinLogLevel()));
         if (class_exists('\\Core\\Environment') && \Core\Environment::isDevel() || \Core\Environment::isTest()) {
             $log->pushHandler(new PHPConsoleHandler(['enabled' => true]));
         }
-
-        $log->error($sMessage);
+        $log->error($sMessage, $context);
     }
 
     public function error($sMessage, array $context = array())

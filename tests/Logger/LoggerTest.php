@@ -17,24 +17,10 @@ class LoggerTest extends TestCase
     {
         $oErrorLogDir = $this->getLogDir();
 
-        // Empty directory
-        if ($oErrorLogDir->isDir())
-        {
-            foreach ($oErrorLogDir->getDirectoryIterator() as $item)
-            {
-                if ($item instanceof DirectoryIterator)
-                {
-                    $oLogFilePath = Path::make($item->getRealPath());
-                    $oLogFilePath->unlink();
-
-                }
-            }
-        }
-
         // Remove directory
         if ($oErrorLogDir->exists())
         {
-            $oErrorLogDir->unlink();
+            $oErrorLogDir->unlinkRecursive();
         }
     }
 
