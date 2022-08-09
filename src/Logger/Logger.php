@@ -131,16 +131,26 @@ class Logger implements LoggerInterface
      * @param int $iLogLevel
      * @throws Exception
      */
-    public function custom($sMessage, $mLogFileName, $iLogLevel = self::DEBUG)
+    public function custom($sMessage, $mLogFileName, int $iLogLevel = self::DEBUG, array $aContext = [])
     {
-        if (!strpos($mLogFileName, PATH_SEPARATOR) === 0) {
+        $mPathSeparatorPos = strpos($mLogFileName, PATH_SEPARATOR);
+        $bIsRelative = false;
+        if(is_int($mPathSeparatorPos) && $mPathSeparatorPos !== 0)
+        {
+            $bIsRelative = true;
+        }
+        elseif(is_bool($mPathSeparatorPos) && $mPathSeparatorPos === false)
+        {
+            $bIsRelative = true;
+        }
+        if ($bIsRelative) {
             $mLogFileName = self::getLogDir()->extend($mLogFileName);
         }
         $log = new MonoLogger('custom');
         $log->pushHandler(new StreamHandler("{$mLogFileName}", $iLogLevel));
         $log->pushHandler(new StreamHandler('php://stdout', $iLogLevel));
 
-        $log->info($sMessage);
+        $log->log($iLogLevel, $sMessage, $aContext);
     }
 
     /**
@@ -185,6 +195,39 @@ class Logger implements LoggerInterface
         } else {
             $log->debug($mMessage);
 
+        }
+    }
+
+    /**
+     * Log multiple messages at once
+     *
+     * @param array $aMessages [level=>int, message=>string], string[], anything Monolog supports
+     * @param int $iDefaultLevel
+     * @param array $context
+     *
+     * @return void
+     * @throws InvalidArgumentException
+     */
+    public function multiple(array $aMessages, int $iDefaultLevel = self::DEBUG, array $context = array())
+    {
+        foreach ($aMessages as $mMessage)
+        {
+            if(is_string($mMessage))
+            {
+                $this->oLoggerImplementation->log($iDefaultLevel, $mMessage, $context);
+            }
+            elseif(is_array($mMessage) && isset($mMessage['message']))
+            {
+                $this->oLoggerImplementation->log($mMessage['level'] ?? $iDefaultLevel, $mMessage['message'], $context);
+            }
+            elseif(is_array($mMessage))
+            {
+                $this->oLoggerImplementation->log($mMessage['level'] ?? $iDefaultLevel, JsonUtils::encode($mMessage), $context);
+            }
+            else
+            {
+                $this->oLoggerImplementation->log($mMessage['level'] ?? $iDefaultLevel, $mMessage, $context);
+            }
         }
     }
 

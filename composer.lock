@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "hurah/data-types",
-            "version": "v1.0.81",
+            "version": "v1.0.82",
             "source": {
                 "type": "git",
                 "url": "https://github.com/antonboutkam/data-types.git",
-                "reference": "55510368d3a4ba3ed7c71135be8e241ca20bdc7c"
+                "reference": "4e11571df4d1b5ba0da51f5c78e871211b90b8f2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/antonboutkam/data-types/zipball/55510368d3a4ba3ed7c71135be8e241ca20bdc7c",
-                "reference": "55510368d3a4ba3ed7c71135be8e241ca20bdc7c",
+                "url": "https://api.github.com/repos/antonboutkam/data-types/zipball/4e11571df4d1b5ba0da51f5c78e871211b90b8f2",
+                "reference": "4e11571df4d1b5ba0da51f5c78e871211b90b8f2",
                 "shasum": ""
             },
             "require": {
@@ -50,9 +50,9 @@
             "description": "Collection of general purpose data types, corresponding collections, validators, utilities and some control statements represented by objects to allow more strict type checking",
             "support": {
                 "issues": "https://github.com/antonboutkam/data-types/issues",
-                "source": "https://github.com/antonboutkam/data-types/tree/v1.0.81"
+                "source": "https://github.com/antonboutkam/data-types/tree/v1.0.82"
             },
-            "time": "2022-01-10T19:04:05+00:00"
+            "time": "2022-01-18T11:44:34+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -1246,16 +1246,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "9.5.11",
+            "version": "9.5.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "2406855036db1102126125537adb1406f7242fdd"
+                "reference": "597cb647654ede35e43b137926dfdfef0fb11743"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/2406855036db1102126125537adb1406f7242fdd",
-                "reference": "2406855036db1102126125537adb1406f7242fdd",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/597cb647654ede35e43b137926dfdfef0fb11743",
+                "reference": "597cb647654ede35e43b137926dfdfef0fb11743",
                 "shasum": ""
             },
             "require": {
@@ -1333,7 +1333,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
-                "source": "https://github.com/sebastianbergmann/phpunit/tree/9.5.11"
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/9.5.13"
             },
             "funding": [
                 {
@@ -1345,7 +1345,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-12-25T07:07:57+00:00"
+            "time": "2022-01-24T07:33:35+00:00"
         },
         {
             "name": "sebastian/cli-parser",

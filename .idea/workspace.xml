@@ -22,9 +22,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aeefc774-2541-409c-a014-9a3012827bc8" name="Default Changelist" comment="Just indentation.">
-      <change beforePath="$PROJECT_DIR$/.idea/logger.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/logger.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+    <list default="true" id="aeefc774-2541-409c-a014-9a3012827bc8" name="Default Changelist" comment="- Added context to pageNotFound method.&#10;- Using recursive unlink when setting up tests.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.phpunit.result.cache" beforeDir="false" afterPath="$PROJECT_DIR$/.phpunit.result.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
@@ -113,31 +111,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.detected.package.tslint" value="true" />
-    <property name="node.js.path.for.package.eslint" value="project" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="nodejs_package_manager_path" value="npm" />
-    <property name="vue.rearranger.settings.migration" value="true" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "last_opened_file_path": "/home/anton/Documents/sites/hurah-logger"
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="PHPUnit.LoggerTest (1)">
+  <component name="RunManager" selected="PHPUnit.LoggerTest.testCustom">
     <configuration name="LoggerTest (1)" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="Test\Hurah\Logger\LoggerTest" configuration_file="$PROJECT_DIR$/phpunit.xml.dist" file="$PROJECT_DIR$/tests/Logger/LoggerTest.php" scope="Class" />
-      <method v="2" />
-    </configuration>
-    <configuration name="LoggerTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Test\Logger\LoggerTest" configuration_file="$PROJECT_DIR$/phpunit.xml.dist" file="$PROJECT_DIR$/tests/Logger/LoggerTest.php" scope="Class" />
       <method v="2" />
     </configuration>
     <configuration name="LoggerTest.testAddHandler" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
@@ -148,16 +134,25 @@
       <TestRunner class="Test\Hurah\Logger\LoggerTest" configuration_file="$PROJECT_DIR$/phpunit.xml.dist" file="$PROJECT_DIR$/tests/Logger/LoggerTest.php" method="testConstruct" scope="Method" />
       <method v="2" />
     </configuration>
+    <configuration name="LoggerTest.testCustom" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Test\Hurah\Logger\LoggerTest" configuration_file="$PROJECT_DIR$/phpunit.xml.dist" file="$PROJECT_DIR$/tests/Logger/LoggerTest.php" method="testCustom" scope="Method" />
+      <method v="2" />
+    </configuration>
+    <configuration name="LoggerTest.testMultiple" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Test\Hurah\Logger\LoggerTest" configuration_file="$PROJECT_DIR$/phpunit.xml.dist" file="$PROJECT_DIR$/tests/Logger/LoggerTest.php" method="testMultiple" scope="Method" />
+      <method v="2" />
+    </configuration>
     <configuration name="phpunit.xml.dist" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner scope="XML" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="PHPUnit.LoggerTest.testCustom" />
+        <item itemvalue="PHPUnit.LoggerTest.testMultiple" />
         <item itemvalue="PHPUnit.LoggerTest (1)" />
         <item itemvalue="PHPUnit.LoggerTest.testAddHandler" />
         <item itemvalue="PHPUnit.LoggerTest.testConstruct" />
-        <item itemvalue="PHPUnit.LoggerTest" />
       </list>
     </recent_temporary>
   </component>
@@ -239,6 +234,7 @@
     <MESSAGE value="Bugfix: Constructor was accessing uninitialized static property." />
     <MESSAGE value="Added unit test for adding MonologHandler" />
     <MESSAGE value="Just indentation." />
-    <option name="LAST_COMMIT_MESSAGE" value="Just indentation." />
+    <MESSAGE value="- Added context to pageNotFound method.&#10;- Using recursive unlink when setting up tests." />
+    <option name="LAST_COMMIT_MESSAGE" value="- Added context to pageNotFound method.&#10;- Using recursive unlink when setting up tests." />
   </component>
 </project>
