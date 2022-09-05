@@ -3,6 +3,7 @@ namespace Hurah\Logger;
 
 use Exception;
 use Hurah\Types\Exception\InvalidArgumentException;
+use Hurah\Types\Exception\NullPointerException;
 use Hurah\Types\Type\PhpNamespace;
 use Hurah\Types\Util\JsonUtils;
 use Hurah\Types\Type\Path;
@@ -287,9 +288,20 @@ class Logger implements LoggerInterface
             }
             if(self::$bAddMethodName && isset($aTraceLine))
             {
-                $oClass = new PhpNamespace($aTraceLine['class']);
+                try
+                {
+                    if (!isset($aTraceLine['class']))
+                    {
+                        throw new NullPointerException("class does not exist in backtrace");
+                    }
+                    $oClass = new PhpNamespace($aTraceLine['class']);
+                    $context[] = $oClass->getShortName() . '::' . $aTraceLine['function'];
+                }
+                catch (Exception $e)
+                {
+                    $context[] = $aTraceLine;
+                }
 
-                $context[] = $oClass->getShortName() . '::' . $aTraceLine['function'];
             }
 
             if(self::$bAddFileName && isset($aTraceLine))
