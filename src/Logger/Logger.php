@@ -278,22 +278,30 @@ class Logger implements LoggerInterface
 
     public function log($level, $message, array $context = array())
     {
-        if(self::$bAddFileName || self::$bAddMethodName)
+        try
         {
-            $aTrace = debug_backtrace();
-            $aTraceLine = $aTrace[2] ?? null;
-        }
-        if(self::$bAddMethodName && isset($aTraceLine))
-        {
-            $oClass = new PhpNamespace($aTraceLine['class']);
+            if(self::$bAddFileName || self::$bAddMethodName)
+            {
+                $aTrace = debug_backtrace();
+                $aTraceLine = $aTrace[2] ?? null;
+            }
+            if(self::$bAddMethodName && isset($aTraceLine))
+            {
+                $oClass = new PhpNamespace($aTraceLine['class']);
 
-            $context[] = $oClass->getShortName() . '::' . $aTraceLine['function'];
+                $context[] = $oClass->getShortName() . '::' . $aTraceLine['function'];
+            }
+
+            if(self::$bAddFileName && isset($aTraceLine))
+            {
+                $context[] = basename($aTraceLine['file']) . ':' . $aTraceLine['line'];
+            }
+        }
+        catch (Exception $e)
+        {
+            $context[] = $e->getMessage();
         }
 
-        if(self::$bAddFileName && isset($aTraceLine))
-        {
-            $context[] = basename($aTraceLine['file']) . ':' . $aTraceLine['line'];
-        }
 
         $this->oLoggerImplementation->log($level, $message, $context);
     }
