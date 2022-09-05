@@ -3,6 +3,7 @@ namespace Hurah\Logger;
 
 use Exception;
 use Hurah\Types\Exception\InvalidArgumentException;
+use Hurah\Types\Type\PhpNamespace;
 use Hurah\Types\Util\JsonUtils;
 use Hurah\Types\Type\Path;
 use Monolog\Handler\HandlerInterface;
@@ -280,11 +281,13 @@ class Logger implements LoggerInterface
         if(self::$bAddFileName || self::$bAddMethodName)
         {
             $aTrace = debug_backtrace();
-            $aTraceLine = $aTrace[1];
+            $aTraceLine = $aTrace[2] ?? null;
         }
         if(self::$bAddMethodName && isset($aTraceLine))
         {
-            $context[] = $aTraceLine['class'] . '::' . $aTraceLine['function'];
+            $oClass = new PhpNamespace($aTraceLine['class']);
+
+            $context[] = $oClass->getShortName() . '::' . $aTraceLine['function'];
         }
 
         if(self::$bAddFileName && isset($aTraceLine))
