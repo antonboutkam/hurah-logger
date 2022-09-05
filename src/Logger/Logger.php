@@ -159,7 +159,7 @@ class Logger implements LoggerInterface
         $log->pushHandler(new StreamHandler("{$mLogFileName}", $iLogLevel));
         $log->pushHandler(new StreamHandler('php://stdout', $iLogLevel));
 
-        $log->log($iLogLevel, $sMessage, $aContext);
+        $log->log($iLogLevel, $message, $aContext);
     }
 
     /**
