@@ -62,6 +62,8 @@ class Logger implements LoggerInterface
 
     private static int $iMinLogLevel = self::WARNING;
     private static Path $oLogDir;
+    private static bool $bAddMethodName = true;
+    private static bool $bAddFileName = true;
 
     private LoggerInterface $oLoggerImplementation;
 
@@ -121,7 +123,14 @@ class Logger implements LoggerInterface
     {
         self::$iMinLogLevel = $iLogLevel;
     }
-
+    public static function addMethodName(bool $bAddMethodName)
+    {
+        self::$bAddMethodName = $bAddMethodName;
+    }
+    public static function addFileName(bool $bAddFileName)
+    {
+        self::$bAddFileName = $bAddFileName;
+    }
     /**
      * Send log messages to any location + php://stdtout. Accepts an absolute or a relative path. If the path is
      * relative it will be relative to self::$oLogDir
@@ -131,7 +140,7 @@ class Logger implements LoggerInterface
      * @param int $iLogLevel
      * @throws Exception
      */
-    public function custom($sMessage, $mLogFileName, int $iLogLevel = self::DEBUG, array $aContext = [])
+    public function custom($message, $mLogFileName, int $iLogLevel = self::DEBUG, array $aContext = [])
     {
         $mPathSeparatorPos = strpos($mLogFileName, PATH_SEPARATOR);
         $bIsRelative = false;
@@ -159,19 +168,19 @@ class Logger implements LoggerInterface
      * @param $sMessage
      * @throws Exception
      */
-    public function pageNotFound($sMessage, array $context = array())
+    public function pageNotFound($message, array $context = array())
     {
         $log = new MonoLogger('404');
         $log->pushHandler(new StreamHandler(self::getLogDir() . '/page-not-found.log', self::getMinLogLevel()));
         if (class_exists('\\Core\\Environment') && \Core\Environment::isDevel() || \Core\Environment::isTest()) {
             $log->pushHandler(new PHPConsoleHandler(['enabled' => true]));
         }
-        $log->error($sMessage, $context);
+        $log->error($message, $context);
     }
 
-    public function error($sMessage, array $context = array())
+    public function error($message, array $context = array())
     {
-        $this->oLoggerImplementation->error($sMessage, $context);
+        $this->oLoggerImplementation->error($message, $context);
     }
 
     /**
@@ -231,43 +240,57 @@ class Logger implements LoggerInterface
         }
     }
 
-    public function warning($sMessage, array $context = array())
+    public function warning($message, array $context = array())
     {
-        $this->oLoggerImplementation->warning($sMessage, $context);
+        $this->log(self::WARNING, $message, $context);
     }
 
-    public function info($sMessage, array $context = array())
+    public function info($message, array $context = array())
     {
-        $this->oLoggerImplementation->info($sMessage, $context);
+        $this->log(self::INFO, $message, $context);
     }
 
-    public function debug($sMessage, array $context = array())
+    public function debug($message, array $context = array())
     {
-        $this->oLoggerImplementation->debug($sMessage, $context);
+        $this->log(self::DEBUG, $message, $context);
     }
 
     public function emergency($message, array $context = array())
     {
-        $this->oLoggerImplementation->emergency($message, $context);
+        $this->log(self::EMERGENCY, $message, $context);
     }
 
     public function alert($message, array $context = array())
     {
-        $this->oLoggerImplementation->alert($message, $context);
+        $this->log(self::ALERT, $message, $context);
     }
 
     public function critical($message, array $context = array())
     {
-        $this->oLoggerImplementation->critical($message, $context);
+        $this->log(self::CRITICAL, $message, $context);
     }
 
     public function notice($message, array $context = array())
     {
-        $this->oLoggerImplementation->notice($message, $context);
+        $this->log(self::NOTICE, $message, $context);
     }
 
     public function log($level, $message, array $context = array())
     {
-        $this->oLoggerImplementation->log($level, $message, $context);
+        if(self::$bAddFileName || self::$bAddMethodName)
+        {
+            $aTrace = debug_backtrace();
+            $aTraceLine = $aTrace[1];
+        }
+        if(self::$bAddMethodName && isset($aTraceLine))
+        {
+            $context[] = $aTraceLine['class'] . '::' . $aTraceLine['function'];
+        }
+
+        if(self::$bAddFileName && isset($aTraceLine))
+        {
+            $context[] = basename($aTraceLine['file']) . ':' . $aTraceLine['line'];
+        }
+        $this->log($level, $message, $context);
     }
 }
