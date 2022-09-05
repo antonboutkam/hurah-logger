@@ -291,6 +291,7 @@ class Logger implements LoggerInterface
         {
             $context[] = basename($aTraceLine['file']) . ':' . $aTraceLine['line'];
         }
-        $this->log($level, $message, $context);
+
+        $this->oLoggerImplementation->log($level, $message, $context);
     }
 }
