@@ -3,6 +3,9 @@ namespace Hurah\Logger;
 
 use Exception;
 use Hurah\Types\Exception\InvalidArgumentException;
+use Hurah\Types\Exception\RuntimeException;
+use Hurah\Types\Type\PhpNamespace;
+use Hurah\Types\Util\ArrayUtils;
 use Hurah\Types\Util\JsonUtils;
 use Hurah\Types\Type\Path;
 use Monolog\Handler\HandlerInterface;
@@ -64,6 +67,7 @@ class Logger implements LoggerInterface
     private static Path $oLogDir;
     private static bool $bAddMethodName = true;
     private static bool $bAddFileName = true;
+    private array $aGlobalContext = [];
 
     private LoggerInterface $oLoggerImplementation;
 
@@ -114,11 +118,6 @@ class Logger implements LoggerInterface
     {
         self::$oLogDir = $oLogDir;
     }
-
-    private static function getMinLogLevel():int
-    {
-        return self::$iMinLogLevel;
-    }
     public static function setMinLogLevel($iLogLevel = self::INFO)
     {
         self::$iMinLogLevel = $iLogLevel;
@@ -131,6 +130,58 @@ class Logger implements LoggerInterface
     {
         self::$bAddFileName = $bAddFileName;
     }
+    private static function getMinLogLevel():int
+    {
+        return self::$iMinLogLevel;
+    }
+
+    public function addContext(...$context):self
+    {
+        $this->aGlobalContext = array_merge($this->aGlobalContext, $context);
+        return $this;
+    }
+    public function setContext(...$context):self
+    {
+        $this->aGlobalContext = $context;
+        return $this;
+    }
+    public function unsetContext(...$sKeys):self
+    {
+        if(empty($sKeys))
+        {
+            return $this;
+        }
+        if(ArrayUtils::isAssociative($sKeys))
+        {
+            $aKeys = array_keys($sKeys);
+        }
+        elseif(ArrayUtils::isSequential($sKeys))
+        {
+            $aKeys = $sKeys;
+        }
+        else
+        {
+            throw new RuntimeException(__METHOD__ . " is expecting an associative array where the keys relate to the context keys that need to be unset or a sequential array with just the keys.");
+        }
+        foreach($aKeys as $sKey)
+        {
+            if(isset($this->aGlobalContext[$sKey]))
+            {
+                unset($this->aGlobalContext[$sKey]);
+            }
+        }
+        return $this;
+    }
+    public function clearContext():self
+    {
+        $this->aGlobalContext = [];
+        return $this;
+    }
+
+    private function processContext(array $aContext= []):array
+    {
+        return array_merge($this->aGlobalContext, $aContext);
+    }
     /**
      * Send log messages to any location + php://stdtout. Accepts an absolute or a relative path. If the path is
      * relative it will be relative to self::$oLogDir
@@ -142,6 +193,7 @@ class Logger implements LoggerInterface
      */
     public function custom($message, $mLogFileName, int $iLogLevel = self::DEBUG, array $aContext = [])
     {
+        $aContext = $this->processContext($aContext);
         $mPathSeparatorPos = strpos($mLogFileName, PATH_SEPARATOR);
         $bIsRelative = false;
         if(is_int($mPathSeparatorPos) && $mPathSeparatorPos !== 0)
@@ -168,8 +220,9 @@ class Logger implements LoggerInterface
      * @param $sMessage
      * @throws Exception
      */
-    public function pageNotFound($message, array $context = array())
+    public function pageNotFound($message, array $context = [])
     {
+        $context = $this->processContext($context);
         $log = new MonoLogger('404');
         $log->pushHandler(new StreamHandler(self::getLogDir() . '/page-not-found.log', self::getMinLogLevel()));
         if (class_exists('\\Core\\Environment') && \Core\Environment::isDevel() || \Core\Environment::isTest()) {
@@ -178,8 +231,9 @@ class Logger implements LoggerInterface
         $log->error($message, $context);
     }
 
-    public function error($message, array $context = array())
+    public function error($message, array $context = [])
     {
+        $context = $this->processContext($context);
         $this->oLoggerImplementation->error($message, $context);
     }
 
@@ -188,8 +242,9 @@ class Logger implements LoggerInterface
      * @param string $sLevel
      * @throws InvalidArgumentException
      */
-    public function console($mMessage, string $sLevel = 'info')
+    public function console($mMessage, string $sLevel = 'info', array $context = [])
     {
+        $context = $this->processContext($context);
         if (is_array($mMessage) || is_object($mMessage)) {
             $mMessage = JsonUtils::encode($mMessage);
         }
@@ -199,10 +254,10 @@ class Logger implements LoggerInterface
         if ($sLevel == 'info') {
             $log->info($mMessage);
         } else if ($sLevel == 'warning') {
-            $log->warning($mMessage);
+            $log->warning($mMessage, $context);
 
         } else {
-            $log->debug($mMessage);
+            $log->debug($mMessage, $context);
 
         }
     }
@@ -217,74 +272,83 @@ class Logger implements LoggerInterface
      * @return void
      * @throws InvalidArgumentException
      */
-    public function multiple(array $aMessages, int $iDefaultLevel = self::DEBUG, array $context = array())
+    public function multiple(array $aMessages, int $iDefaultLevel = self::DEBUG, array $context = [])
     {
+        $context = $this->processContext($context);
         foreach ($aMessages as $mMessage)
         {
             if(is_string($mMessage))
             {
-                $this->oLoggerImplementation->log($iDefaultLevel, $mMessage, $context);
+                $this->log($iDefaultLevel, $mMessage, $context);
             }
             elseif(is_array($mMessage) && isset($mMessage['message']))
             {
-                $this->oLoggerImplementation->log($mMessage['level'] ?? $iDefaultLevel, $mMessage['message'], $context);
+                $this->log($mMessage['level'] ?? $iDefaultLevel, $mMessage['message'], $context);
             }
             elseif(is_array($mMessage))
             {
-                $this->oLoggerImplementation->log($mMessage['level'] ?? $iDefaultLevel, JsonUtils::encode($mMessage), $context);
+                $this->log($mMessage['level'] ?? $iDefaultLevel, JsonUtils::encode($mMessage), $context);
             }
             else
             {
-                $this->oLoggerImplementation->log($mMessage['level'] ?? $iDefaultLevel, $mMessage, $context);
+                $this->log($mMessage['level'] ?? $iDefaultLevel, $mMessage, $context);
             }
         }
     }
 
-    public function warning($message, array $context = array())
+    public function warning($message, array $context = [])
     {
         $this->log(self::WARNING, $message, $context);
     }
 
-    public function info($message, array $context = array())
+    public function info($message, array $context = [])
     {
         $this->log(self::INFO, $message, $context);
     }
 
-    public function debug($message, array $context = array())
+    public function debug($message, array $context = [])
     {
         $this->log(self::DEBUG, $message, $context);
     }
 
-    public function emergency($message, array $context = array())
+    public function emergency($message, array $context = [])
     {
         $this->log(self::EMERGENCY, $message, $context);
     }
 
-    public function alert($message, array $context = array())
+    public function alert($message, array $context = [])
     {
         $this->log(self::ALERT, $message, $context);
     }
 
-    public function critical($message, array $context = array())
+    public function critical($message, array $context = [])
     {
         $this->log(self::CRITICAL, $message, $context);
     }
 
-    public function notice($message, array $context = array())
+    public function notice($message, array $context = [])
     {
         $this->log(self::NOTICE, $message, $context);
     }
 
-    public function log($level, $message, array $context = array())
+    public function log($level, $message, array $context = [])
     {
+        $context = $this->processContext($context);
         if(self::$bAddFileName || self::$bAddMethodName)
         {
             $aTrace = debug_backtrace();
-            $aTraceLine = $aTrace[1];
+            foreach ($aTrace as $aTraceLine)
+            {
+                if($aTraceLine['class'] != self::class)
+                {
+                    break;
+                }
+            }
         }
         if(self::$bAddMethodName && isset($aTraceLine))
         {
-            $context[] = $aTraceLine['class'] . '::' . $aTraceLine['function'];
+            $oClass = PhpNamespace::make($aTraceLine['class']);
+            $context[] = $oClass->getShortName() . '::' . $aTraceLine['function'];
         }
 
         if(self::$bAddFileName && isset($aTraceLine))

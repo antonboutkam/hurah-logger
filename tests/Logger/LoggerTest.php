@@ -82,6 +82,8 @@ class LoggerTest extends TestCase
     {
 
         $oLogger = new Logger(Logger::DEBUG, $this->getLogDir(), 'hurah');
+        Logger::addFileName(false);
+        Logger::addMethodName(false);
         $aLogItems = [
             ['message' => 'Logging something', 'level' => Logger::WARNING],
             ['message' => 'Logging another thing'],
@@ -96,9 +98,9 @@ class LoggerTest extends TestCase
 
         $sLogFileContents = $oCombinedLogFile->contents();
 
-        $this->assertTrue(strpos($sLogFileContents, 'hurah.WARNING: Logging something ["log","multiple"]') > 0);
-        $this->assertTrue(strpos($sLogFileContents, 'hurah.INFO: Logging another thing ["log","multiple"]') > 0);
-        $this->assertTrue(strpos($sLogFileContents, 'hurah.INFO: ["And another"] ["log","multiple"]') > 0);
+        $this->assertTrue(strpos($sLogFileContents, 'hurah.WARNING: Logging something ["log","multiple"]') > 0, $sLogFileContents);
+        $this->assertTrue(strpos($sLogFileContents, 'hurah.INFO: Logging another thing ["log","multiple"]') > 0, $sLogFileContents);
+        $this->assertTrue(strpos($sLogFileContents, 'hurah.INFO: ["And another"] ["log","multiple"]') > 0, $sLogFileContents);
     }
 
     public function testNotLogging(): void
