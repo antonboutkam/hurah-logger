@@ -194,7 +194,7 @@ class Logger implements LoggerInterface
     public function custom($message, $mLogFileName, int $iLogLevel = self::DEBUG, array $aContext = [])
     {
         $aContext = $this->processContext($aContext);
-        $mPathSeparatorPos = strpos($mLogFileName, PATH_SEPARATOR);
+        $mPathSeparatorPos = strpos($mLogFileName, DIRECTORY_SEPARATOR);
         $bIsRelative = false;
         if(is_int($mPathSeparatorPos) && $mPathSeparatorPos !== 0)
         {

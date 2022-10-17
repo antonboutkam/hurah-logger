@@ -22,15 +22,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aeefc774-2541-409c-a014-9a3012827bc8" name="Default Changelist" comment="- Added $context to Custom logger.&#10;- Bugfix in Custom logger that caused the log file nog to be correct in some cases.&#10;- Added multiple method to Logger class&#10;- Added unit tests.">
-      <change beforePath="$PROJECT_DIR$/.idea/logger.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/logger.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+    <list default="true" id="aeefc774-2541-409c-a014-9a3012827bc8" name="Default Changelist" comment="- Upgraded to Monolog 2.8&#10;- Added possibility to set / unset a global context to make something like stories for customers etc without having to keep an context array outside of the logger all the time.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.phpunit.result.cache" beforeDir="false" afterPath="$PROJECT_DIR$/.phpunit.result.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Logger/Logger.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Logger/Logger.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Logger/LoggerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Logger/LoggerTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,14 +103,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "last_opened_file_path": "/home/anton/Documents/sites/hurah-logger",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;last_opened_file_path&quot;: &quot;/home/anton/Documents/sites/hurah-logger&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
@@ -237,6 +231,7 @@
     <MESSAGE value="Just indentation." />
     <MESSAGE value="- Added context to pageNotFound method.&#10;- Using recursive unlink when setting up tests." />
     <MESSAGE value="- Added $context to Custom logger.&#10;- Bugfix in Custom logger that caused the log file nog to be correct in some cases.&#10;- Added multiple method to Logger class&#10;- Added unit tests." />
-    <option name="LAST_COMMIT_MESSAGE" value="- Added $context to Custom logger.&#10;- Bugfix in Custom logger that caused the log file nog to be correct in some cases.&#10;- Added multiple method to Logger class&#10;- Added unit tests." />
+    <MESSAGE value="- Upgraded to Monolog 2.8&#10;- Added possibility to set / unset a global context to make something like stories for customers etc without having to keep an context array outside of the logger all the time." />
+    <option name="LAST_COMMIT_MESSAGE" value="- Upgraded to Monolog 2.8&#10;- Added possibility to set / unset a global context to make something like stories for customers etc without having to keep an context array outside of the logger all the time." />
   </component>
 </project>
