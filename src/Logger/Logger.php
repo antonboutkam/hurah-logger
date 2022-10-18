@@ -350,8 +350,21 @@ class Logger implements LoggerInterface
         {
             try
             {
-                $oClass = PhpNamespace::make($aTraceLine['class']);
-                $context[] = $oClass->getShortName() . '::' . $aTraceLine['function'];
+                $aComponents = [];
+                if(isset($aTraceLine['class']))
+                {
+                    $oClass = PhpNamespace::make($aTraceLine['class']);
+                    $aComponents[] = $oClass->getShortName();
+                }
+                if(isset($aTraceLine['function']))
+                {
+                    $aComponents[] = $aTraceLine['function'];
+                }
+                if(!empty($aComponents))
+                {
+                    $context[] = join('::', $aComponents);
+                }
+
             }
             catch (LogicException $e)
             {
