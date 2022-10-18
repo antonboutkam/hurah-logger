@@ -22,7 +22,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aeefc774-2541-409c-a014-9a3012827bc8" name="Default Changelist" comment="- Bugfix, wrong path separator">
+    <list default="true" id="aeefc774-2541-409c-a014-9a3012827bc8" name="Default Changelist" comment="- Small improvement in adding context to log files.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Logger/Logger.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Logger/Logger.php" afterDir="false" />
     </list>
@@ -43,6 +43,11 @@
         <option name="argument" value="--tags" />
         <option name="title" value="All" />
       </GitPushTagMode>
+    </option>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="v1.0.30" />
+      </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -146,10 +151,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="PHPUnit.LoggerTest (1)" />
-        <item itemvalue="PHPUnit.LoggerTest.testCustom" />
         <item itemvalue="PHPUnit.LoggerTest.testMultiple" />
-        <item itemvalue="PHPUnit.LoggerTest.testAddHandler" />
+        <item itemvalue="PHPUnit.LoggerTest.testCustom" />
         <item itemvalue="PHPUnit.LoggerTest.testConstruct" />
+        <item itemvalue="PHPUnit.LoggerTest.testAddHandler" />
       </list>
     </recent_temporary>
   </component>
@@ -235,6 +240,7 @@
     <MESSAGE value="- Added $context to Custom logger.&#10;- Bugfix in Custom logger that caused the log file nog to be correct in some cases.&#10;- Added multiple method to Logger class&#10;- Added unit tests." />
     <MESSAGE value="- Upgraded to Monolog 2.8&#10;- Added possibility to set / unset a global context to make something like stories for customers etc without having to keep an context array outside of the logger all the time." />
     <MESSAGE value="- Bugfix, wrong path separator" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Bugfix, wrong path separator" />
+    <MESSAGE value="- Small improvement in adding context to log files." />
+    <option name="LAST_COMMIT_MESSAGE" value="- Small improvement in adding context to log files." />
   </component>
 </project>

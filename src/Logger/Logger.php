@@ -340,6 +340,10 @@ class Logger implements LoggerInterface
             $aTrace = debug_backtrace();
             foreach ($aTrace as $aTraceLine)
             {
+                if(!isset($aTraceLine['class']))
+                {
+                    continue;
+                }
                 if($aTraceLine['class'] != self::class)
                 {
                     break;
