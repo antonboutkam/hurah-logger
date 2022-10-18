@@ -22,7 +22,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aeefc774-2541-409c-a014-9a3012827bc8" name="Default Changelist" comment="- Upgraded to Monolog 2.8&#10;- Added possibility to set / unset a global context to make something like stories for customers etc without having to keep an context array outside of the logger all the time.">
+    <list default="true" id="aeefc774-2541-409c-a014-9a3012827bc8" name="Default Changelist" comment="- Bugfix, wrong path separator">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Logger/Logger.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Logger/Logger.php" afterDir="false" />
     </list>
@@ -232,6 +232,7 @@
     <MESSAGE value="- Added context to pageNotFound method.&#10;- Using recursive unlink when setting up tests." />
     <MESSAGE value="- Added $context to Custom logger.&#10;- Bugfix in Custom logger that caused the log file nog to be correct in some cases.&#10;- Added multiple method to Logger class&#10;- Added unit tests." />
     <MESSAGE value="- Upgraded to Monolog 2.8&#10;- Added possibility to set / unset a global context to make something like stories for customers etc without having to keep an context array outside of the logger all the time." />
-    <option name="LAST_COMMIT_MESSAGE" value="- Upgraded to Monolog 2.8&#10;- Added possibility to set / unset a global context to make something like stories for customers etc without having to keep an context array outside of the logger all the time." />
+    <MESSAGE value="- Bugfix, wrong path separator" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Bugfix, wrong path separator" />
   </component>
 </project>
