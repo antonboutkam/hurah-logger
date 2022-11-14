@@ -22,8 +22,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aeefc774-2541-409c-a014-9a3012827bc8" name="Default Changelist" comment="- Small improvement in adding context to log files.">
+    <list default="true" id="aeefc774-2541-409c-a014-9a3012827bc8" name="Default Changelist" comment="- Bugfix notice undefined index.">
+      <change afterPath="$PROJECT_DIR$/src/Logger/Util.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Logger/UtilTest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.phpunit.result.cache" beforeDir="false" afterPath="$PROJECT_DIR$/.phpunit.result.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Logger/Logger.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Logger/Logger.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -108,28 +111,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "/home/anton/Documents/sites/hurah-logger",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/anton/Documents/sites/hurah-logger&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="PHPUnit.LoggerTest (1)">
+  <component name="RunManager" selected="PHPUnit.UtilTest.testStripNamespace">
     <configuration name="LoggerTest (1)" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="Test\Hurah\Logger\LoggerTest" configuration_file="$PROJECT_DIR$/phpunit.xml.dist" file="$PROJECT_DIR$/tests/Logger/LoggerTest.php" scope="Class" />
-      <method v="2" />
-    </configuration>
-    <configuration name="LoggerTest.testAddHandler" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Test\Hurah\Logger\LoggerTest" configuration_file="$PROJECT_DIR$/phpunit.xml.dist" file="$PROJECT_DIR$/tests/Logger/LoggerTest.php" method="testAddHandler" scope="Method" />
       <method v="2" />
     </configuration>
     <configuration name="LoggerTest.testConstruct" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
@@ -144,17 +143,21 @@
       <TestRunner class="Test\Hurah\Logger\LoggerTest" configuration_file="$PROJECT_DIR$/phpunit.xml.dist" file="$PROJECT_DIR$/tests/Logger/LoggerTest.php" method="testMultiple" scope="Method" />
       <method v="2" />
     </configuration>
+    <configuration name="UtilTest.testStripNamespace" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Logger\UtilTest" configuration_file="$PROJECT_DIR$/phpunit.xml.dist" file="$PROJECT_DIR$/tests/Logger/UtilTest.php" method="testStripNamespace" scope="Method" />
+      <method v="2" />
+    </configuration>
     <configuration name="phpunit.xml.dist" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner scope="XML" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="PHPUnit.UtilTest.testStripNamespace" />
         <item itemvalue="PHPUnit.LoggerTest (1)" />
         <item itemvalue="PHPUnit.LoggerTest.testMultiple" />
         <item itemvalue="PHPUnit.LoggerTest.testCustom" />
         <item itemvalue="PHPUnit.LoggerTest.testConstruct" />
-        <item itemvalue="PHPUnit.LoggerTest.testAddHandler" />
       </list>
     </recent_temporary>
   </component>
@@ -241,6 +244,7 @@
     <MESSAGE value="- Upgraded to Monolog 2.8&#10;- Added possibility to set / unset a global context to make something like stories for customers etc without having to keep an context array outside of the logger all the time." />
     <MESSAGE value="- Bugfix, wrong path separator" />
     <MESSAGE value="- Small improvement in adding context to log files." />
-    <option name="LAST_COMMIT_MESSAGE" value="- Small improvement in adding context to log files." />
+    <MESSAGE value="- Bugfix notice undefined index." />
+    <option name="LAST_COMMIT_MESSAGE" value="- Bugfix notice undefined index." />
   </component>
 </project>

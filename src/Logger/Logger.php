@@ -362,6 +362,7 @@ class Logger implements LoggerInterface
                 }
                 if(isset($aTraceLine['function']))
                 {
+                    $aTraceLine['function'] = Util::stripNamespace($aTraceLine['function']);
                     $aComponents[] = $aTraceLine['function'];
                 }
                 if(!empty($aComponents))
