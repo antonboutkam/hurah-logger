@@ -1,4 +1,4 @@
-#Hurah logger
+# Hurah logger
 
 
 This small library contains the Logger class used in Hurah and the Novum Innovation app. This package has no use on
