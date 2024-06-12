@@ -22,9 +22,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aeefc774-2541-409c-a014-9a3012827bc8" name="Default Changelist" comment="- Bugfix notice undefined index.&#10;- Shortening the function / method name also now.">
-      <change beforePath="$PROJECT_DIR$/.circleci/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.circleci/config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+    <list default="true" id="aeefc774-2541-409c-a014-9a3012827bc8" name="Default Changelist" comment="- making things php 8.3 compatible">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
     </list>
@@ -255,6 +253,7 @@
     <MESSAGE value="- Small improvement in adding context to log files." />
     <MESSAGE value="- Bugfix notice undefined index." />
     <MESSAGE value="- Bugfix notice undefined index.&#10;- Shortening the function / method name also now." />
-    <option name="LAST_COMMIT_MESSAGE" value="- Bugfix notice undefined index.&#10;- Shortening the function / method name also now." />
+    <MESSAGE value="- making things php 8.3 compatible" />
+    <option name="LAST_COMMIT_MESSAGE" value="- making things php 8.3 compatible" />
   </component>
 </project>
