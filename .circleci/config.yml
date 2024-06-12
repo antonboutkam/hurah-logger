@@ -6,9 +6,7 @@ version: 2
 jobs:
   build:
     docker:
-      # Specify the version you desire here
-      - image: circleci/php:7.4.13-cli-buster
-
+      - image:  cimg/php:8.3.8
     steps:
       - checkout
       - run: sudo apt update #  sudo apt install zlib1g-dev libsqlite3-dev

@@ -1,7 +1,7 @@
 {
     "name": "hurah/logger",
     "type" : "library",
-    "description": "Logger for the Hurah / Innovation app.",
+    "description": "Logger for Hurah.",
     "license": "MIT",
     "authors": [
         {
