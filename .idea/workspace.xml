@@ -22,12 +22,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aeefc774-2541-409c-a014-9a3012827bc8" name="Default Changelist" comment="- Bugfix notice undefined index.">
-      <change afterPath="$PROJECT_DIR$/src/Logger/Util.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Logger/UtilTest.php" afterDir="false" />
+    <list default="true" id="aeefc774-2541-409c-a014-9a3012827bc8" name="Default Changelist" comment="- Bugfix notice undefined index.&#10;- Shortening the function / method name also now.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.phpunit.result.cache" beforeDir="false" afterPath="$PROJECT_DIR$/.phpunit.result.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Logger/Logger.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Logger/Logger.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,6 +102,9 @@
       <path value="$PROJECT_DIR$/vendor/psr/http-message" />
     </include_path>
   </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 6
+}]]></component>
   <component name="ProjectId" id="1qQua68ExAN7NLJy7rwKUkF5Xlz" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -160,6 +160,13 @@
         <item itemvalue="PHPUnit.LoggerTest.testConstruct" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-PS-241.17890.8" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -245,6 +252,7 @@
     <MESSAGE value="- Bugfix, wrong path separator" />
     <MESSAGE value="- Small improvement in adding context to log files." />
     <MESSAGE value="- Bugfix notice undefined index." />
-    <option name="LAST_COMMIT_MESSAGE" value="- Bugfix notice undefined index." />
+    <MESSAGE value="- Bugfix notice undefined index.&#10;- Shortening the function / method name also now." />
+    <option name="LAST_COMMIT_MESSAGE" value="- Bugfix notice undefined index.&#10;- Shortening the function / method name also now." />
   </component>
 </project>
