@@ -50,6 +50,14 @@ class LoggerTest extends TestCase
         $oExtraHandlerLogFile->unlink();
     }
 
+	public function testStdout():void
+	{
+		$this->assertFalse(Logger::isLogfilePathRelative('php://stdout'));
+		$this->assertFalse(Logger::isLogfilePathRelative('/home/nuidev'));
+		$this->assertTrue(Logger::isLogfilePathRelative('./home/nuidev'));
+
+
+	}
     public function testConstruct(): void
     {
         $this->assertInstanceOf(Logger::class, new Logger());
@@ -88,7 +96,7 @@ class LoggerTest extends TestCase
             ['message' => 'Logging something', 'level' => Logger::WARNING],
             ['message' => 'Logging another thing'],
             ['And another'],
-            [['And', 'An', 'Array']]
+            [['And', 'An', 'Array']],
         ];
         $oLogger->multiple($aLogItems, Logger::INFO, ['log', 'multiple']);
 

@@ -22,7 +22,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aeefc774-2541-409c-a014-9a3012827bc8" name="Default Changelist" comment="- making things php 8.3 compatible" />
+    <list default="true" id="aeefc774-2541-409c-a014-9a3012827bc8" name="Default Changelist" comment="- making things php 8.3 compatible">
+      <change beforePath="$PROJECT_DIR$/.idea/php-test-framework.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php-test-framework.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.phpunit.result.cache" beforeDir="false" afterPath="$PROJECT_DIR$/.phpunit.result.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Logger/Logger.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Logger/Logger.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Logger/LoggerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Logger/LoggerTest.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -108,28 +114,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/anton/Documents/sites/hurah-logger&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "PHPUnit.LoggerTest.testStdout.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "/home/anton/Documents/sites/hurah-logger",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="PHPUnit.UtilTest.testStripNamespace">
+  <component name="RunManager" selected="PHPUnit.LoggerTest.testStdout">
     <configuration name="LoggerTest (1)" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="Test\Hurah\Logger\LoggerTest" configuration_file="$PROJECT_DIR$/phpunit.xml.dist" file="$PROJECT_DIR$/tests/Logger/LoggerTest.php" scope="Class" />
-      <method v="2" />
-    </configuration>
-    <configuration name="LoggerTest.testConstruct" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Test\Hurah\Logger\LoggerTest" configuration_file="$PROJECT_DIR$/phpunit.xml.dist" file="$PROJECT_DIR$/tests/Logger/LoggerTest.php" method="testConstruct" scope="Method" />
       <method v="2" />
     </configuration>
     <configuration name="LoggerTest.testCustom" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
@@ -138,6 +141,10 @@
     </configuration>
     <configuration name="LoggerTest.testMultiple" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="Test\Hurah\Logger\LoggerTest" configuration_file="$PROJECT_DIR$/phpunit.xml.dist" file="$PROJECT_DIR$/tests/Logger/LoggerTest.php" method="testMultiple" scope="Method" />
+      <method v="2" />
+    </configuration>
+    <configuration name="LoggerTest.testStdout" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Test\Hurah\Logger\LoggerTest" configuration_file="$PROJECT_DIR$/phpunit.xml.dist" file="$PROJECT_DIR$/tests/Logger/LoggerTest.php" method="testStdout" scope="Method" />
       <method v="2" />
     </configuration>
     <configuration name="UtilTest.testStripNamespace" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
@@ -150,18 +157,18 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="PHPUnit.LoggerTest.testStdout" />
         <item itemvalue="PHPUnit.UtilTest.testStripNamespace" />
         <item itemvalue="PHPUnit.LoggerTest (1)" />
         <item itemvalue="PHPUnit.LoggerTest.testMultiple" />
         <item itemvalue="PHPUnit.LoggerTest.testCustom" />
-        <item itemvalue="PHPUnit.LoggerTest.testConstruct" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-PS-241.17890.8" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-PS-241.18034.69" />
       </set>
     </attachedChunks>
   </component>
