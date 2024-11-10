@@ -74,6 +74,9 @@ class Logger implements LoggerInterface
 
 	private LoggerInterface $oLoggerImplementation;
 
+	/**
+	 * @throws InvalidArgumentException
+	 */
 	public function __construct(int $iMinLogLevel = null, Path $oLogDir = null, string $sName = 'hurah')
 	{
 		if ($iMinLogLevel) {
@@ -182,7 +185,7 @@ class Logger implements LoggerInterface
 	}
 
 	/**
-	 * Send log messages to any location + php://stdtout. Accepts an absolute or a relative path. If the path is
+	 * Send log messages to any location + php://stdout. Accepts an absolute or a relative path. If the path is
 	 * relative it will be relative to self::$oLogDir
 	 *
 	 * @param $message
@@ -209,7 +212,7 @@ class Logger implements LoggerInterface
 		return array_merge($this->aGlobalContext, $aContext);
 	}
 
-	public function log($level, $message, array $context = [])
+	public function log($level, $message, array $context = []): void
 	{
 		$context = $this->processContext($context);
 		if (self::$bAddFileName || self::$bAddMethodName) {

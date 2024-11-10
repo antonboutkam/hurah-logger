@@ -22,12 +22,34 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aeefc774-2541-409c-a014-9a3012827bc8" name="Default Changelist" comment="- making things php 8.3 compatible">
+    <list default="true" id="aeefc774-2541-409c-a014-9a3012827bc8" name="Default Changelist" comment="- bugfix php://stdout">
+      <change afterPath="$PROJECT_DIR$/src/Logger/AbstractLevel.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Logger/LevelInterface.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Logger/Levels/Alert.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Logger/Levels/Critical.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Logger/Levels/Debug.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Logger/Levels/Emergency.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Logger/Levels/Error.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Logger/Levels/Info.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Logger/Levels/Notice.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Logger/Levels/Warning.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Logger/LogLevelCollection.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Logger/LoggerInfoHelper.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Logger/Levels/AlertTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Logger/Levels/CriticalTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Logger/Levels/DebugTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Logger/Levels/EmergencyTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Logger/Levels/ErrorTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Logger/Levels/InfoTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Logger/Levels/NoticeTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Logger/Levels/WarningTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Logger/LoggerInfoHelperTest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php-test-framework.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php-test-framework.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.phpunit.result.cache" beforeDir="false" afterPath="$PROJECT_DIR$/.phpunit.result.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Logger/Logger.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Logger/Logger.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Logger/LoggerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Logger/LoggerTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,31 +138,33 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "PHPUnit.LoggerInfoHelperTest.testFactory.executor": "Run",
     "PHPUnit.LoggerTest.testStdout.executor": "Run",
+    "PHPUnit.tests.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "/home/anton/Documents/sites/hurah-logger",
+    "com.jetbrains.php.phpunit.codeGeneration.PhpNewTestDialog.defaultLibrary": "PHPUnit",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/home/anton/Documents/sites/hurah-logger/tests/Logger/Levels",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm"
+    "nodejs_package_manager_path": "npm",
+    "php.override.implement.member.chooser.php.doc": "NONE"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/tests/Logger/Levels" />
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="PHPUnit.LoggerTest.testStdout">
+  <component name="RunManager" selected="PHPUnit.tests">
+    <configuration name="LoggerInfoHelperTest.testFactory" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Test\Hurah\Logger\LoggerInfoHelperTest" configuration_file="$PROJECT_DIR$/phpunit.xml.dist" file="$PROJECT_DIR$/tests/Logger/LoggerInfoHelperTest.php" method="testFactory" scope="Method" />
+      <method v="2" />
+    </configuration>
     <configuration name="LoggerTest (1)" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="Test\Hurah\Logger\LoggerTest" configuration_file="$PROJECT_DIR$/phpunit.xml.dist" file="$PROJECT_DIR$/tests/Logger/LoggerTest.php" scope="Class" />
-      <method v="2" />
-    </configuration>
-    <configuration name="LoggerTest.testCustom" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Test\Hurah\Logger\LoggerTest" configuration_file="$PROJECT_DIR$/phpunit.xml.dist" file="$PROJECT_DIR$/tests/Logger/LoggerTest.php" method="testCustom" scope="Method" />
-      <method v="2" />
-    </configuration>
-    <configuration name="LoggerTest.testMultiple" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Test\Hurah\Logger\LoggerTest" configuration_file="$PROJECT_DIR$/phpunit.xml.dist" file="$PROJECT_DIR$/tests/Logger/LoggerTest.php" method="testMultiple" scope="Method" />
       <method v="2" />
     </configuration>
     <configuration name="LoggerTest.testStdout" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
@@ -155,20 +179,24 @@
       <TestRunner scope="XML" />
       <method v="2" />
     </configuration>
+    <configuration name="tests" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner configuration_file="$PROJECT_DIR$/phpunit.xml.dist" directory="$PROJECT_DIR$/tests" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="PHPUnit.tests" />
+        <item itemvalue="PHPUnit.LoggerInfoHelperTest.testFactory" />
         <item itemvalue="PHPUnit.LoggerTest.testStdout" />
         <item itemvalue="PHPUnit.UtilTest.testStripNamespace" />
         <item itemvalue="PHPUnit.LoggerTest (1)" />
-        <item itemvalue="PHPUnit.LoggerTest.testMultiple" />
-        <item itemvalue="PHPUnit.LoggerTest.testCustom" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-PS-241.18034.69" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-PS-242.23726.107" />
       </set>
     </attachedChunks>
   </component>
@@ -258,6 +286,18 @@
     <MESSAGE value="- Bugfix notice undefined index." />
     <MESSAGE value="- Bugfix notice undefined index.&#10;- Shortening the function / method name also now." />
     <MESSAGE value="- making things php 8.3 compatible" />
-    <option name="LAST_COMMIT_MESSAGE" value="- making things php 8.3 compatible" />
+    <MESSAGE value="- bugfix php://stdout" />
+    <option name="LAST_COMMIT_MESSAGE" value="- bugfix php://stdout" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/tests/Logger/LoggerInfoHelperTest.php</url>
+          <line>20</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
