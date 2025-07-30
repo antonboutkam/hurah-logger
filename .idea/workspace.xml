@@ -22,7 +22,35 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aeefc774-2541-409c-a014-9a3012827bc8" name="Default Changelist" comment="Added some informative helper classes to be used by external systems" />
+    <list default="true" id="aeefc774-2541-409c-a014-9a3012827bc8" name="Default Changelist" comment="Added some informative helper classes to be used by external systems">
+      <change beforePath="$PROJECT_DIR$/.idea/logger.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/logger.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Logger/AbstractLevel.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Logger/AbstractLevel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Logger/LevelInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Logger/LevelInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Logger/Levels/Alert.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Logger/Levels/Alert.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Logger/Levels/Critical.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Logger/Levels/Critical.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Logger/Levels/Debug.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Logger/Levels/Debug.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Logger/Levels/Emergency.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Logger/Levels/Emergency.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Logger/Levels/Error.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Logger/Levels/Error.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Logger/Levels/Info.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Logger/Levels/Info.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Logger/Levels/Notice.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Logger/Levels/Notice.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Logger/Levels/Warning.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Logger/Levels/Warning.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Logger/LogLevelCollection.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Logger/LogLevelCollection.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Logger/Logger.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Logger/Logger.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Logger/LoggerInfoHelper.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Logger/LoggerInfoHelper.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Logger/Util.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Logger/Util.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Logger/Levels/AlertTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Logger/Levels/AlertTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Logger/Levels/CriticalTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Logger/Levels/CriticalTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Logger/Levels/DebugTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Logger/Levels/DebugTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Logger/Levels/EmergencyTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Logger/Levels/EmergencyTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Logger/Levels/ErrorTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Logger/Levels/ErrorTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Logger/Levels/InfoTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Logger/Levels/InfoTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Logger/Levels/NoticeTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Logger/Levels/NoticeTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Logger/Levels/WarningTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Logger/Levels/WarningTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Logger/LoggerInfoHelperTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Logger/LoggerInfoHelperTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Logger/UtilTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Logger/UtilTest.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -103,7 +131,6 @@
   &quot;associatedIndex&quot;: 6
 }</component>
   <component name="ProjectId" id="1qQua68ExAN7NLJy7rwKUkF5Xlz" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -115,9 +142,10 @@
     "PHPUnit.tests.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
     "com.jetbrains.php.phpunit.codeGeneration.PhpNewTestDialog.defaultLibrary": "PHPUnit",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "/home/anton/Documents/sites/hurah-logger/tests/Logger/Levels",
+    "last_opened_file_path": "/home/anton/Documents/sites/hurah-logger",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
@@ -168,7 +196,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-PS-242.23726.107" />
+        <option value="bundled-js-predefined-d6986cc7102b-09060db00ec0-JavaScript-PS-251.26927.60" />
       </set>
     </attachedChunks>
   </component>

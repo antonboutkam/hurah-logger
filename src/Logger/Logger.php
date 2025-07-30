@@ -13,6 +13,8 @@ use Hurah\Types\Util\ArrayUtils;
 use Hurah\Types\Util\JsonUtils;
 use Monolog\Handler\HandlerInterface;
 use Monolog\Handler\PHPConsoleHandler;
+use Monolog\Handler\ProcessableHandlerInterface;
+use Monolog\Handler\RotatingFileHandler;
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger as MonoLogger;
 use Psr\Log\LoggerInterface;
@@ -92,16 +94,41 @@ class Logger implements LoggerInterface
 		}
 
 		$this->oLoggerImplementation = new MonoLogger($sName);
-		// Log anything that is more important then the current minimal log level to combined.log.
+		// Log anything that is more important than the current minimal log level to combined.log.
 		$mCombinedLog = self::getLogDir()->extend(self::COMBINED_LOG_FILE);
-		$combinedHandler = new StreamHandler("{$mCombinedLog}", self::getMinLogLevel());
-		$this->oLoggerImplementation->pushHandler($combinedHandler);
 
-		// Log all warnings, critical, errors etc also separately.
+		// Log all warnings, critical, errors, etc. also separately.
 		$mErrorLog = self::getLogDir()->extend(self::ERROR_LOG_FILE);
-		$errorHandler = new StreamHandler("{$mErrorLog}", self::WARNING);
-		$this->oLoggerImplementation->pushHandler($errorHandler);
+
+		$this->pushHandler(new RotatingFileHandler("{$mCombinedLog}", 7,self::getMinLogLevel()));
+		$this->pushHandler(new RotatingFileHandler("{$mErrorLog}", 7,self::WARNING));
+
 	}
+
+	/**
+	 * Set handlers, replacing all existing ones.
+	 * If a map is passed, keys will be ignored.
+	 * Parameters:
+	 *
+	 * @param HandlerInterface[] $handlers
+	 *
+	 * @return self
+	 */
+	public function setHandlers(array $handlers):self
+	{
+		$this->oLoggerImplementation->setHandlers($handlers);
+		return $this;
+	}
+	/**
+	 * Pushes a handler on to the stack.
+	 */
+	public function pushHandler(HandlerInterface $handler): self
+	{
+		$this->pushHandler($handler);
+
+		return $this;
+	}
+
 
 	public static function getLogDir(): Path
 	{
