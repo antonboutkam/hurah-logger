@@ -22,10 +22,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aeefc774-2541-409c-a014-9a3012827bc8" name="Default Changelist" comment="Made the logging format a bit more readable">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.phpunit.result.cache" beforeDir="false" afterPath="$PROJECT_DIR$/.phpunit.result.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Logger/LoggerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Logger/LoggerTest.php" afterDir="false" />
+    <list default="true" id="aeefc774-2541-409c-a014-9a3012827bc8" name="Default Changelist" comment="Fixed unit tests">
+      <change beforePath="$PROJECT_DIR$/src/Logger/Logger.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Logger/Logger.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -265,7 +263,15 @@
       <option name="project" value="LOCAL" />
       <updated>1753862007904</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Fixed unit tests">
+      <option name="closed" value="true" />
+      <created>1753863103792</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1753863103792</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -304,6 +310,7 @@
     <MESSAGE value="- bugfix php://stdout" />
     <MESSAGE value="Added some informative helper classes to be used by external systems" />
     <MESSAGE value="Made the logging format a bit more readable" />
-    <option name="LAST_COMMIT_MESSAGE" value="Made the logging format a bit more readable" />
+    <MESSAGE value="Fixed unit tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed unit tests" />
   </component>
 </project>
