@@ -155,7 +155,7 @@ class Logger implements LoggerInterface
 	 */
 	public function pushHandler(HandlerInterface $handler): self
 	{
-		$this->pushHandler($handler);
+		$this->oLoggerImplementation->pushHandler($handler);
 
 		return $this;
 	}
