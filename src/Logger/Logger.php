@@ -11,6 +11,8 @@ use Hurah\Types\Type\Path;
 use Hurah\Types\Type\PhpNamespace;
 use Hurah\Types\Util\ArrayUtils;
 use Hurah\Types\Util\JsonUtils;
+use Monolog\Formatter\FormatterInterface;
+use Monolog\Formatter\LineFormatter;
 use Monolog\Handler\HandlerInterface;
 use Monolog\Handler\PHPConsoleHandler;
 use Monolog\Handler\ProcessableHandlerInterface;
@@ -18,6 +20,7 @@ use Monolog\Handler\RotatingFileHandler;
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger as MonoLogger;
 use Psr\Log\LoggerInterface;
+use Vtiful\Kernel\Format;
 
 class Logger implements LoggerInterface
 {
@@ -74,6 +77,7 @@ class Logger implements LoggerInterface
 	private static bool $bAddFileName = true;
 	private array $aGlobalContext = [];
 
+	private static FormatterInterface $oDefaultFormatter;
 	private LoggerInterface $oLoggerImplementation;
 
 	/**
@@ -94,15 +98,34 @@ class Logger implements LoggerInterface
 		}
 
 		$this->oLoggerImplementation = new MonoLogger($sName);
+		self::$oDefaultFormatter = self::getDefaultFormatter();
 		// Log anything that is more important than the current minimal log level to combined.log.
 		$mCombinedLog = self::getLogDir()->extend(self::COMBINED_LOG_FILE);
 
 		// Log all warnings, critical, errors, etc. also separately.
 		$mErrorLog = self::getLogDir()->extend(self::ERROR_LOG_FILE);
 
-		$this->pushHandler(new RotatingFileHandler("{$mCombinedLog}", 7,self::getMinLogLevel()));
-		$this->pushHandler(new RotatingFileHandler("{$mErrorLog}", 7,self::WARNING));
+		$combinedHandler = new RotatingFileHandler("{$mCombinedLog}", 7,self::getMinLogLevel());
+		$combinedHandler->setFormatter(self::$oDefaultFormatter);
+		$this->pushHandler($combinedHandler);
 
+		$errorHandler = new RotatingFileHandler("{$mErrorLog}", 7,self::WARNING);
+		$errorHandler->setFormatter(self::$oDefaultFormatter);
+		$this->pushHandler($errorHandler);
+	}
+
+	public static function setFormatter(FormatterInterface $oFormatter):void
+	{
+		self::$oDefaultFormatter = $oFormatter;
+	}
+	public static function getDefaultFormatter():FormatterInterface
+	{
+		$dateFormat = 'ymd-His';
+
+		return  new LineFormatter( str_replace('hurah.', 'h.', "%datetime% > %level_name% > %message% %context% %extra%\n"),
+		  $dateFormat,
+		  true,
+		  true);
 	}
 
 	/**
