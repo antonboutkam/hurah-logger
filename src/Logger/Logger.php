@@ -15,12 +15,10 @@ use Monolog\Formatter\FormatterInterface;
 use Monolog\Formatter\LineFormatter;
 use Monolog\Handler\HandlerInterface;
 use Monolog\Handler\PHPConsoleHandler;
-use Monolog\Handler\ProcessableHandlerInterface;
 use Monolog\Handler\RotatingFileHandler;
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger as MonoLogger;
 use Psr\Log\LoggerInterface;
-use Vtiful\Kernel\Format;
 
 class Logger implements LoggerInterface
 {
@@ -141,6 +139,16 @@ class Logger implements LoggerInterface
 	{
 		$this->oLoggerImplementation->setHandlers($handlers);
 		return $this;
+	}
+
+	/**
+	 * @param HandlerInterface $oHandler
+	 * @deprecated
+	 * @return void
+	 */
+	public function setHandler(HandlerInterface $oHandler)
+	{
+		$this->pushHandler($oHandler);
 	}
 	/**
 	 * Pushes a handler on to the stack.
