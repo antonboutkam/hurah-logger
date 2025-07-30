@@ -2,7 +2,6 @@
 
 namespace Test\Hurah\Logger;
 
-use DirectoryIterator;
 use Hurah\Logger\Logger;
 use Hurah\Types\Exception\InvalidArgumentException;
 use Hurah\Types\Type\Path;
@@ -12,144 +11,151 @@ use function strpos;
 
 class LoggerTest extends TestCase
 {
+	public function setUp(): void
+	{
+		$this->cleanupFiles();
+	}
 
+	public function cleanupFiles(): void
+	{
+		$oErrorLogDir = $this->getLogDir();
 
-    public function cleanupFiles(): void
-    {
-        $oErrorLogDir = $this->getLogDir();
+		// Remove directory
+		if($oErrorLogDir->exists()) {
+			$oErrorLogDir->unlinkRecursive();
+		}
+	}
 
-        // Remove directory
-        if ($oErrorLogDir->exists())
-        {
-            $oErrorLogDir->unlinkRecursive();
-        }
-    }
+	private function getLogDir(): Path
+	{
+		return new Path('./tmp');
+	}
 
-    public function setUp(): void
-    {
-        $this->cleanupFiles();
-    }
+	public function tearDown(): void
+	{
+		$this->cleanupFiles();
+	}
 
-    public function tearDown(): void
-    {
-        $this->cleanupFiles();
-    }
+	public function testAddHandler()
+	{
+		$oExtraHandlerLogFile = $this->getLogDir()->extend('extra-handler.log');
+		$oExtraHandlerLogFile->unlink();
+		$sFile = "{$oExtraHandlerLogFile}";
+		$oLogger = new Logger();
+		$oLogger->addMonologHandler(new StreamHandler($sFile, Logger::WARNING));
+		$oLogger->warning($sMsg = "blabla test");
 
-    public function testAddHandler()
-    {
-        $oExtraHandlerLogFile = $this->getLogDir()->extend('extra-handler.log');
-        $oExtraHandlerLogFile->unlink();
-        $sFile = "{$oExtraHandlerLogFile}";
-        $oLogger = new Logger();
-        $oLogger->addMonologHandler(new StreamHandler($sFile, Logger::WARNING));
-        $oLogger->warning($sMsg = "blabla test");
+		$this->assertTrue(strpos($oExtraHandlerLogFile->contents(), $sMsg) > 1);
 
-        $this->assertTrue(strpos($oExtraHandlerLogFile->contents(), $sMsg) > 1);
+		$this->assertTrue($oExtraHandlerLogFile->exists());
+		$oExtraHandlerLogFile->unlink();
+	}
 
-        $this->assertTrue($oExtraHandlerLogFile->exists());
-        $oExtraHandlerLogFile->unlink();
-    }
-
-	public function testStdout():void
+	public function testStdout(): void
 	{
 		$this->assertFalse(Logger::isLogfilePathRelative('php://stdout'));
 		$this->assertFalse(Logger::isLogfilePathRelative('/home/nuidev'));
 		$this->assertTrue(Logger::isLogfilePathRelative('./home/nuidev'));
-
-
 	}
-    public function testConstruct(): void
-    {
-        $this->assertInstanceOf(Logger::class, new Logger());
-    }
 
-    public function testInfo(): void
-    {
+	public function testConstruct(): void
+	{
+		$this->assertInstanceOf(Logger::class, new Logger());
+	}
 
-        $oLogger = new Logger(Logger::DEBUG, $this->getLogDir(), 'hurah');
-        $oLogger->info("Testing");
+	public function getErrorFileName(): string
+	{
+		return (string)$this->getLogDir()->extend('error-' . date('Y-m-d') . '.log');
+	}
 
-        $this->assertFileExists($this->getLogDir()->extend(Logger::COMBINED_LOG_FILE));
-        $this->assertFileDoesNotExist($this->getLogDir()->extend(Logger::ERROR_LOG_FILE));
-    }
+	public function testInfo(): void
+	{
 
-    public function testWarning(): void
-    {
+		$oLogger = new Logger(Logger::DEBUG, $this->getLogDir(), 'hurah');
+		$oLogger->info("Testing");
 
-        $oLogger = new Logger(Logger::DEBUG, $this->getLogDir(), 'hurah');
-        $oLogger->warning("Testing");
+		$this->assertFileExists($this->getCombinedFileName());
+		$this->assertFileDoesNotExist($this->getErrorFileName());
+	}
+	public function getCombinedFile(): Path
+	{
+		return $this->getLogDir()->extend('combined-' . date('Y-m-d') . '.log');
+	}
+	public function getCombinedFileName(): string
+	{
+		return (string)$this->getLogDir()->extend('combined-' . date('Y-m-d') . '.log');
+	}
 
-        $this->assertFileExists($this->getLogDir()->extend(Logger::COMBINED_LOG_FILE));
-        $this->assertFileExists($this->getLogDir()->extend(Logger::ERROR_LOG_FILE));
-    }
+	public function testWarning(): void
+	{
 
-    /**
-     * @throws InvalidArgumentException
-     */
-    public function testMultiple(): void
-    {
+		$oLogger = new Logger(Logger::DEBUG, $this->getLogDir(), 'hurah');
+		$oLogger->warning("Testing");
 
-        $oLogger = new Logger(Logger::DEBUG, $this->getLogDir(), 'hurah');
-        Logger::addFileName(false);
-        Logger::addMethodName(false);
-        $aLogItems = [
-            ['message' => 'Logging something', 'level' => Logger::WARNING],
-            ['message' => 'Logging another thing'],
-            ['And another'],
-            [['And', 'An', 'Array']],
-        ];
-        $oLogger->multiple($aLogItems, Logger::INFO, ['log', 'multiple']);
+		$this->assertFileExists($this->getCombinedFileName());
+		$this->assertFileExists($this->getErrorFileName());
+	}
 
-        $oCombinedLogFile = $this->getLogDir()->extend(Logger::COMBINED_LOG_FILE);
-        $this->assertFileExists($oCombinedLogFile);
-        $this->assertFileExists($this->getLogDir()->extend(Logger::ERROR_LOG_FILE));
+	/**
+	 * @throws InvalidArgumentException
+	 */
+	public function testMultiple(): void
+	{
 
-        $sLogFileContents = $oCombinedLogFile->contents();
+		$oLogger = new Logger(Logger::DEBUG, $this->getLogDir(), 'hurah');
+		Logger::addFileName(false);
+		Logger::addMethodName(false);
+		$aLogItems = [
+		  ['message' => 'Logging something', 'level' => Logger::WARNING],
+		  ['message' => 'Logging another thing'],
+		  ['And another'],
+		  [['And', 'An', 'Array']],
+		];
+		$oLogger->multiple($aLogItems, Logger::INFO, ['log', 'multiple']);
 
-        $this->assertTrue(strpos($sLogFileContents, 'hurah.WARNING: Logging something ["log","multiple"]') > 0, $sLogFileContents);
-        $this->assertTrue(strpos($sLogFileContents, 'hurah.INFO: Logging another thing ["log","multiple"]') > 0, $sLogFileContents);
-        $this->assertTrue(strpos($sLogFileContents, 'hurah.INFO: ["And another"] ["log","multiple"]') > 0, $sLogFileContents);
-    }
 
-    public function testNotLogging(): void
-    {
+		$this->assertFileExists($this->getCombinedFileName());
+		$this->assertFileExists($this->getErrorFileName());
 
-        $oLogger = new Logger(Logger::WARNING, $this->getLogDir(), 'hurah');
-        $oLogger->info("Testing");
+		$sLogFileContents = $this->getCombinedFile()->contents();
+		$this->assertTrue(strpos($sLogFileContents, 'WARNING > Logging something ["log","multiple"]') > 0, $sLogFileContents);
+		$this->assertTrue(strpos($sLogFileContents, 'INFO > Logging another thing ["log","multiple"]') > 0, $sLogFileContents);
+		$this->assertTrue(strpos($sLogFileContents, 'INFO > ["And another"] ["log","multiple"] ') > 0, $sLogFileContents);
+	}
 
-        $this->assertFileDoesNotExist($this->getLogDir()->extend(Logger::COMBINED_LOG_FILE));
-        $this->assertFileDoesNotExist($this->getLogDir()->extend(Logger::ERROR_LOG_FILE));
-    }
+	public function testNotLogging(): void
+	{
 
-    public function testCustom(): void
-    {
-        $sCustomFile = 'custom-file';
-        $sCustomMessage = "This is a custom message";
-        $aCustomTags = ['some', 'context'];
-        $oCustomFilePath = $this->getLogDir()->extend($sCustomFile);
+		$oLogger = new Logger(Logger::WARNING, $this->getLogDir(), 'hurah');
+		$oLogger->info("Testing");
 
-        $oLogger = new Logger(Logger::WARNING, $this->getLogDir(), 'hurah');
-        $oLogger->custom($sCustomMessage, $sCustomFile, Logger::WARNING, $aCustomTags);
+		$this->assertFileDoesNotExist($this->getCombinedFileName());
+		$this->assertFileDoesNotExist($this->getErrorFileName());
+	}
 
-        $this->assertFileExists($oCustomFilePath);
-        $this->assertTrue(strpos($oCustomFilePath->contents(), $sCustomMessage) > 0);
-        $this->assertTrue(strpos($oCustomFilePath->contents(), 'some') > 0);
-        $oCustomFilePath->unlink();
-    }
+	public function testCustom(): void
+	{
+		$sCustomFile = 'custom-file';
+		$sCustomMessage = "This is a custom message";
+		$aCustomTags = ['some', 'context'];
+		$oCustomFilePath = $this->getLogDir()->extend($sCustomFile);
 
-    public function testLogging(): void
-    {
+		$oLogger = new Logger(Logger::WARNING, $this->getLogDir(), 'hurah');
+		$oLogger->custom($sCustomMessage, $sCustomFile, Logger::WARNING, $aCustomTags);
 
-        $oLogger = new Logger(Logger::WARNING, $this->getLogDir(), 'hurah');
-        $oLogger->critical("Testing");
+		$this->assertFileExists($oCustomFilePath);
+		$this->assertTrue(strpos($oCustomFilePath->contents(), $sCustomMessage) > 0);
+		$this->assertTrue(strpos($oCustomFilePath->contents(), 'some') > 0);
+		$oCustomFilePath->unlink();
+	}
 
-        $this->assertFileExists($this->getLogDir()->extend(Logger::COMBINED_LOG_FILE));
-        $this->assertFileExists($this->getLogDir()->extend(Logger::ERROR_LOG_FILE));
-    }
+	public function testLogging(): void
+	{
 
-    private function getLogDir(): Path
-    {
-        return new Path('./tmp');
-    }
+		$oLogger = new Logger(Logger::WARNING, $this->getLogDir(), 'hurah');
+		$oLogger->critical("Testing");
 
+		$this->assertFileExists($this->getCombinedFileName());
+		$this->assertFileExists($this->getErrorFileName());
+	}
 }

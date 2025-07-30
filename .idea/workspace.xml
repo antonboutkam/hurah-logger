@@ -22,9 +22,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aeefc774-2541-409c-a014-9a3012827bc8" name="Default Changelist" comment="Added some informative helper classes to be used by external systems">
+    <list default="true" id="aeefc774-2541-409c-a014-9a3012827bc8" name="Default Changelist" comment="Made the logging format a bit more readable">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Logger/Logger.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Logger/Logger.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.phpunit.result.cache" beforeDir="false" afterPath="$PROJECT_DIR$/.phpunit.result.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Logger/LoggerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Logger/LoggerTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,44 +114,48 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;PHPUnit.LoggerInfoHelperTest.testFactory.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.LoggerTest.testStdout.executor&quot;: &quot;Run&quot;,
-    &quot;PHPUnit.tests.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;com.jetbrains.php.phpunit.codeGeneration.PhpNewTestDialog.defaultLibrary&quot;: &quot;PHPUnit&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/anton/Documents/sites/hurah-logger&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;php.override.implement.member.chooser.php.doc&quot;: &quot;NONE&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "PHPUnit.Logger.executor": "Run",
+    "PHPUnit.LoggerInfoHelperTest.testFactory.executor": "Run",
+    "PHPUnit.LoggerTest.executor": "Run",
+    "PHPUnit.LoggerTest.testMultiple.executor": "Run",
+    "PHPUnit.LoggerTest.testStdout.executor": "Run",
+    "PHPUnit.LoggerTest.testWarning.executor": "Run",
+    "PHPUnit.tests.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "com.jetbrains.php.phpunit.codeGeneration.PhpNewTestDialog.defaultLibrary": "PHPUnit",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/home/anton/Documents/sites/hurah-logger",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "php.override.implement.member.chooser.php.doc": "NONE"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/tests/Logger/Levels" />
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="PHPUnit.tests">
-    <configuration name="LoggerInfoHelperTest.testFactory" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Test\Hurah\Logger\LoggerInfoHelperTest" configuration_file="$PROJECT_DIR$/phpunit.xml.dist" file="$PROJECT_DIR$/tests/Logger/LoggerInfoHelperTest.php" method="testFactory" scope="Method" />
+  <component name="RunManager" selected="PHPUnit.LoggerTest">
+    <configuration name="Logger" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner configuration_file="$PROJECT_DIR$/phpunit.xml.dist" directory="$PROJECT_DIR$/tests/Logger" />
       <method v="2" />
     </configuration>
-    <configuration name="LoggerTest (1)" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+    <configuration name="LoggerTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="Test\Hurah\Logger\LoggerTest" configuration_file="$PROJECT_DIR$/phpunit.xml.dist" file="$PROJECT_DIR$/tests/Logger/LoggerTest.php" scope="Class" />
       <method v="2" />
     </configuration>
-    <configuration name="LoggerTest.testStdout" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Test\Hurah\Logger\LoggerTest" configuration_file="$PROJECT_DIR$/phpunit.xml.dist" file="$PROJECT_DIR$/tests/Logger/LoggerTest.php" method="testStdout" scope="Method" />
+    <configuration name="LoggerTest.testMultiple" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Test\Hurah\Logger\LoggerTest" configuration_file="$PROJECT_DIR$/phpunit.xml.dist" file="$PROJECT_DIR$/tests/Logger/LoggerTest.php" method="testMultiple" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="UtilTest.testStripNamespace" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Logger\UtilTest" configuration_file="$PROJECT_DIR$/phpunit.xml.dist" file="$PROJECT_DIR$/tests/Logger/UtilTest.php" method="testStripNamespace" scope="Method" />
+    <configuration name="LoggerTest.testWarning" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Test\Hurah\Logger\LoggerTest" configuration_file="$PROJECT_DIR$/phpunit.xml.dist" file="$PROJECT_DIR$/tests/Logger/LoggerTest.php" method="testWarning" scope="Method" />
       <method v="2" />
     </configuration>
     <configuration name="phpunit.xml.dist" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -163,11 +168,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="PHPUnit.LoggerTest" />
+        <item itemvalue="PHPUnit.LoggerTest.testMultiple" />
+        <item itemvalue="PHPUnit.LoggerTest.testWarning" />
+        <item itemvalue="PHPUnit.Logger" />
         <item itemvalue="PHPUnit.tests" />
-        <item itemvalue="PHPUnit.LoggerInfoHelperTest.testFactory" />
-        <item itemvalue="PHPUnit.LoggerTest.testStdout" />
-        <item itemvalue="PHPUnit.UtilTest.testStripNamespace" />
-        <item itemvalue="PHPUnit.LoggerTest (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -252,7 +257,15 @@
       <option name="project" value="LOCAL" />
       <updated>1753861384563</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Made the logging format a bit more readable">
+      <option name="closed" value="true" />
+      <created>1753862007904</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1753862007904</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -290,6 +303,7 @@
     <MESSAGE value="- making things php 8.3 compatible" />
     <MESSAGE value="- bugfix php://stdout" />
     <MESSAGE value="Added some informative helper classes to be used by external systems" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added some informative helper classes to be used by external systems" />
+    <MESSAGE value="Made the logging format a bit more readable" />
+    <option name="LAST_COMMIT_MESSAGE" value="Made the logging format a bit more readable" />
   </component>
 </project>
