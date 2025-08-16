@@ -103,11 +103,11 @@ class Logger implements LoggerInterface
 		// Log all warnings, critical, errors, etc. also separately.
 		$mErrorLog = self::getLogDir()->extend(self::ERROR_LOG_FILE);
 
-		$combinedHandler = new RotatingFileHandler("{$mCombinedLog}", 5,self::getMinLogLevel());
+		$combinedHandler = new RotatingFileHandler("{$mCombinedLog}", 5,self::getMinLogLevel(), true, 0755);
 		$combinedHandler->setFormatter(self::$oDefaultFormatter);
 		$this->pushHandler($combinedHandler);
 
-		$errorHandler = new RotatingFileHandler("{$mErrorLog}", 10,self::WARNING);
+		$errorHandler = new RotatingFileHandler("{$mErrorLog}", 10,self::WARNING, true, 0755);
 		$errorHandler->setFormatter(self::$oDefaultFormatter);
 		$this->pushHandler($errorHandler);
 	}
