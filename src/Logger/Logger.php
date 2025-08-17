@@ -70,6 +70,8 @@ class Logger implements LoggerInterface
 	const EMERGENCY = 600;
 
 	private static int $iMinLogLevel = self::WARNING;
+
+	private static int $iLogFilePermission = 0o666;
 	private static Path $oLogDir;
 	private static bool $bAddMethodName = true;
 	private static bool $bAddFileName = true;
@@ -103,13 +105,32 @@ class Logger implements LoggerInterface
 		// Log all warnings, critical, errors, etc. also separately.
 		$mErrorLog = self::getLogDir()->extend(self::ERROR_LOG_FILE);
 
-		$combinedHandler = new RotatingFileHandler("{$mCombinedLog}", 5,self::getMinLogLevel(), true, 0755);
+		$combinedHandler = new RotatingFileHandler("{$mCombinedLog}", 5,self::getMinLogLevel(), true, self::getLogFilePermission());
 		$combinedHandler->setFormatter(self::$oDefaultFormatter);
 		$this->pushHandler($combinedHandler);
 
-		$errorHandler = new RotatingFileHandler("{$mErrorLog}", 10,self::WARNING, true, 0755);
+		$errorHandler = new RotatingFileHandler("{$mErrorLog}", 10,self::WARNING, true, self::getLogFilePermission());
 		$errorHandler->setFormatter(self::$oDefaultFormatter);
 		$this->pushHandler($errorHandler);
+	}
+
+
+	/**
+	 * 7 = 4+2+1 = rwx
+	 * 6 = 4+2 = rw-
+	 * 5 = 4+1 = r-x
+	 * 4 = 4 = r--
+	 * 2 = 2 = -w-
+	 * 1 = 1 = --x
+	 * 0 = 0 = ---
+	 */
+	public static function setLogFilePermission(int $iLogFilePermission = 0o644): void
+	{
+		self::$iLogFilePermission = $iLogFilePermission;
+	}
+	public static function getLogFilePermission(int $iLogFilePermission = 0o644): int
+	{
+		return self::$iLogFilePermission;
 	}
 
 	public static function setFormatter(FormatterInterface $oFormatter):void
