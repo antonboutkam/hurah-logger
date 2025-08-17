@@ -70,7 +70,9 @@ class Logger implements LoggerInterface
 	const EMERGENCY = 600;
 
 	private static int $iMinLogLevel = self::WARNING;
-
+	/**
+	 * @var int The permission settings of the file in octal mode.
+	 */
 	private static int $iLogFilePermission = 0o666;
 	private static Path $oLogDir;
 	private static bool $bAddMethodName = true;
