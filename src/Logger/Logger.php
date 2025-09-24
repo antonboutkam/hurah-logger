@@ -322,7 +322,7 @@ class Logger implements LoggerInterface
 
 	private function processContext(array $aContext = []): array
 	{
-		return array_merge($this->aInstanceContext, $aContext);
+		return array_merge(self::$aGlobalContext, $this->aInstanceContext, $aContext);
 	}
 
 	public function log($level, $message, array $context = []): void
