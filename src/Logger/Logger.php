@@ -320,6 +320,13 @@ class Logger implements LoggerInterface
 		$log->log($iLogLevel, $message, $aContext);
 	}
 
+	/**
+	 * Merges the global, the instance and the current cnotext array and
+	 * returns the result
+	 * @param array $aContext
+	 *
+	 * @return array
+	 */
 	private function processContext(array $aContext = []): array
 	{
 		return array_merge(self::$aGlobalContext, $this->aInstanceContext, $aContext);
