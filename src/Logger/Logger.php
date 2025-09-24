@@ -77,7 +77,8 @@ class Logger implements LoggerInterface
 	private static Path $oLogDir;
 	private static bool $bAddMethodName = true;
 	private static bool $bAddFileName = true;
-	private array $aGlobalContext = [];
+	private array $aInstanceContext = [];
+	private static array $aGlobalContext = [];
 
 	private static FormatterInterface $oDefaultFormatter;
 	private LoggerInterface $oLoggerImplementation;
@@ -116,6 +117,14 @@ class Logger implements LoggerInterface
 		$this->pushHandler($errorHandler);
 	}
 
+	public static function setGlobalContext(array $context):void
+	{
+		self::$aGlobalContext = $context;
+	}
+	public static function addGlobalContext(string $Context):void
+	{
+		self::$aGlobalContext[] = $Context;
+	}
 
 	/**
 	 * 7 = 4+2+1 = rwx
@@ -227,13 +236,13 @@ class Logger implements LoggerInterface
 
 	public function addContext(...$context): self
 	{
-		$this->aGlobalContext = array_merge($this->aGlobalContext, $context);
+		$this->aInstanceContext = array_merge(self::$aGlobalContext, $this->aInstanceContext, $context);
 		return $this;
 	}
 
 	public function setContext(...$context): self
 	{
-		$this->aGlobalContext = $context;
+		$this->aInstanceContext = $context;
 		return $this;
 	}
 
@@ -252,8 +261,8 @@ class Logger implements LoggerInterface
 			throw new RuntimeException(__METHOD__ . " is expecting an associative array where the keys relate to the context keys that need to be unset or a sequential array with just the keys.");
 		}
 		foreach ($aKeys as $sKey) {
-			if (isset($this->aGlobalContext[$sKey])) {
-				unset($this->aGlobalContext[$sKey]);
+			if (isset($this->aInstanceContext[$sKey])) {
+				unset($this->aInstanceContext[$sKey]);
 			}
 		}
 		return $this;
@@ -261,7 +270,7 @@ class Logger implements LoggerInterface
 
 	public function clearContext(): self
 	{
-		$this->aGlobalContext = [];
+		$this->aInstanceContext = [];
 		return $this;
 	}
 
@@ -290,7 +299,7 @@ class Logger implements LoggerInterface
 
 	private function processContext(array $aContext = []): array
 	{
-		return array_merge($this->aGlobalContext, $aContext);
+		return array_merge($this->aInstanceContext, $aContext);
 	}
 
 	public function log($level, $message, array $context = []): void
