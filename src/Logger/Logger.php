@@ -117,10 +117,25 @@ class Logger implements LoggerInterface
 		$this->pushHandler($errorHandler);
 	}
 
-	public static function setGlobalContext(array $context):void
+	/**
+	 * Sets the global context array that will be included in all log messages
+	 *
+	 * @param array $context The context array to set globally
+	 *
+	 * @return void
+	 */
+	public static function setGlobalContext(array $context): void
 	{
 		self::$aGlobalContext = $context;
 	}
+
+	/**
+	 * Adds a single context string to the global context array
+	 *
+	 * @param string $Context The context string to add
+	 *
+	 * @return void
+	 */
 	public static function addGlobalContext(string $Context):void
 	{
 		self::$aGlobalContext[] = $Context;
@@ -144,6 +159,13 @@ class Logger implements LoggerInterface
 		return self::$iLogFilePermission;
 	}
 
+	/**
+	 * Sets the default formatter for all log handlers
+	 *
+	 * @param FormatterInterface $oFormatter The formatter to use
+	 *
+	 * @return void
+	 */
 	public static function setFormatter(FormatterInterface $oFormatter):void
 	{
 		self::$oDefaultFormatter = $oFormatter;
@@ -275,7 +297,8 @@ class Logger implements LoggerInterface
 	}
 
 	/**
-	 * Send log messages to any location + php://stdout. Accepts an absolute or a relative path. If the path is
+	 * Send log messages to any location + php://stdout. Accepts an absolute or
+	 * a relative path. If the path is
 	 * relative it will be relative to self::$oLogDir
 	 *
 	 * @param $message
@@ -350,6 +373,7 @@ class Logger implements LoggerInterface
 	 * set to DEVEL or TEST
 	 *
 	 * @param $sMessage
+	 * @param array $aContext
 	 *
 	 * @throws Exception
 	 */

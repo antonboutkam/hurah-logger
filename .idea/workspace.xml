@@ -22,8 +22,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aeefc774-2541-409c-a014-9a3012827bc8" name="Default Changelist" comment="Fixed unit tests">
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+    <list default="true" id="aeefc774-2541-409c-a014-9a3012827bc8" name="Default Changelist" comment="Added the option to set a Global Context">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Logger/Logger.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Logger/Logger.php" afterDir="false" />
     </list>
@@ -140,7 +139,7 @@
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;com.jetbrains.php.phpunit.codeGeneration.PhpNewTestDialog.defaultLibrary&quot;: &quot;PHPUnit&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/anton/Documents/sites/hurah-logger&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/anton/Documents/sites/hurah&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
@@ -326,7 +325,15 @@
       <option name="project" value="LOCAL" />
       <updated>1755427023040</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Added the option to set a Global Context">
+      <option name="closed" value="true" />
+      <created>1758727796614</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1758727796614</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -366,6 +373,7 @@
     <MESSAGE value="Added some informative helper classes to be used by external systems" />
     <MESSAGE value="Made the logging format a bit more readable" />
     <MESSAGE value="Fixed unit tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed unit tests" />
+    <MESSAGE value="Added the option to set a Global Context" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added the option to set a Global Context" />
   </component>
 </project>
